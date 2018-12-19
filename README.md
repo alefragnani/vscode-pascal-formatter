@@ -67,6 +67,8 @@ There is also:
 
 * **Pascal Formatter: Edit Formatter Parameters** Opens/Generate the _parameters file_ for the selected engine
 
+> This extension was originally extracted from my [Pascal](https://github.com/alefragnani/vscode-language-pascal) extension
+
 # License
 
 [MIT](LICENSE.md) &copy; Alessandro Fragnani
