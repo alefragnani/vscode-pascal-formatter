@@ -11,6 +11,8 @@ import fs = require('fs');
 import path = require('path');
 import cp = require('child_process');
 var opener = require('opener');
+import { WhatsNewManager } from '../vscode-whats-new/src/Manager';
+import { WhatsNewPascalFormatterContentProvider } from './whats-new/PascalFormatterContentProvider';
 
 const documentSelector = [
     { language: 'pascal', scheme: 'file' },
@@ -32,6 +34,11 @@ export function activate(context: vscode.ExtensionContext) {
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
     console.log('Congratulations, your extension "vscode-pascal-formatter" is now active!');
+
+    let provider = new WhatsNewPascalFormatterContentProvider();
+    let viewer = new WhatsNewManager(context).registerContentProvider("pascal-formatter", provider);
+    viewer.showPageInActivation();
+    context.subscriptions.push(vscode.commands.registerCommand('pascalFormatter.whatsNew', () => viewer.showPage()));
 
     //
     vscode.commands.registerCommand('pascalFormatter.editFormatterParameters', () => {

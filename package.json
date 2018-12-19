@@ -29,7 +29,7 @@
         "onCommand:pascalFormatter.whatsNew",
         "*"
     ],
-    "main": "./out/extension",
+    "main": "./out/src/extension",
     "icon": "images/icon.png",
     "license": "SEE LICENSE IN LICENSE.md",
     "homepage": "https://github.com/alefragnani/vscode-pascal-formatter/blob/master/README.md",
