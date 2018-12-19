@@ -20,11 +20,13 @@
         "delphi",
         "freepascal",
         "lazarus",
+        "objectpascal",
         "formatter",
         "multi-root ready"
     ],
     "activationEvents": [
         "onLanguage:pascal",
+        "onLanguage:objectpascal",
         "onCommand:pascalFormatter.editFormatterParameters",
         "onCommand:pascalFormatter.whatsNew",
         "*"
