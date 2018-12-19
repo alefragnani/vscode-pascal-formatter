@@ -3,6 +3,10 @@
   <a title="Learn more about Pascal Formatter" href="http://github.com/alefragnani/vscode-pascal-formatter"><img src="https://raw.githubusercontent.com/alefragnani/vscode-pascal-formatter/master/images/vscode-pascal-formatter-logo-readme.png" alt="Pascal Formatter Logo" width="70%" /></a>
 </p>
 
+# What's new in Pascal Formatter 2
+
+* **OmniPascal** extension support
+
 # Support
 
 **Pascal Formatter** is an open source extension created for **Visual Studio Code**. While being free and open source, if you find it useful, please consider supporting it
