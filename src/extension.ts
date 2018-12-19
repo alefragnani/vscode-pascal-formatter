@@ -16,7 +16,9 @@ import { WhatsNewPascalFormatterContentProvider } from './whats-new/PascalFormat
 
 const documentSelector = [
     { language: 'pascal', scheme: 'file' },
-    { language: 'pascal', scheme: 'untitled' }
+    { language: 'pascal', scheme: 'untitled' },
+    { language: 'objectpascal', scheme: 'file' },
+    { language: 'objectpascal', scheme: 'untitled' }
 ];
 
 // this method is called when your extension is activated

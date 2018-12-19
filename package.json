@@ -2,14 +2,14 @@
     "name": "pascal-formatter",
     "displayName": "Pascal Formatter",
     "description": "Source code formatter for Pascal",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "publisher": "alefragnani",
     "galleryBanner": {
         "color": "#4682B4",
         "theme": "dark"
     },
     "engines": {
-        "vscode": "^1.30.0"
+        "vscode": "^1.23.0"
     },
     "categories": [
         "Formatters",
@@ -20,11 +20,13 @@
         "delphi",
         "freepascal",
         "lazarus",
+        "objectpascal",
         "formatter",
         "multi-root ready"
     ],
     "activationEvents": [
         "onLanguage:pascal",
+        "onLanguage:objectpascal",
         "onCommand:pascalFormatter.editFormatterParameters",
         "onCommand:pascalFormatter.whatsNew",
         "*"
@@ -88,8 +90,8 @@
         "opener": "^1.5.1"
     },
     "devDependencies": {
-        "typescript": "^3.1.4",
-        "vscode": "^1.1.25",
+        "typescript": "^3.1.6",
+        "vscode": "^1.1.21",
         "tslint": "^5.8.0",
         "@types/node": "^8.10.25",
         "@types/mocha": "^2.2.42"
