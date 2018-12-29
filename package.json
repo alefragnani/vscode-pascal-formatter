@@ -2,7 +2,7 @@
     "name": "pascal-formatter",
     "displayName": "Pascal Formatter",
     "description": "Source code formatter for Pascal",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "publisher": "alefragnani",
     "galleryBanner": {
         "color": "#4682B4",
@@ -75,7 +75,7 @@
                     "type": "string",
                     "default": "",
                     "description": "Indicates the configuration file for the selected engine"
-                }
+				}
             }
         }
     },

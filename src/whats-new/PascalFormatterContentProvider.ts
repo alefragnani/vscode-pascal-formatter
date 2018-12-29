@@ -19,6 +19,10 @@ export class WhatsNewPascalFormatterContentProvider implements ContentProvider {
         changeLog.push({kind: ChangeLogKind.CHANGED, message: `Extracted from <b>Pascal</b> extension 
             <a title=\"Open Pascal Extension\" href=\"https://github.com/alefragnani/vscode-language-pascal/\">
             Pascal Extension</a>)</b>`});
+        changeLog.push({kind: ChangeLogKind.FIXED, message: `Settings not listed under <b>Contributions</b> 
+            (<a title=\"Open Issue #6\" 
+            href=\"https://github.com/alefragnani/vscode-pascal-formatter/issues/6\">
+            Issue #6</a>)</b>`});
         return changeLog;
     }
 
