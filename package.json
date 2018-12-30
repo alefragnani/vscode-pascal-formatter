@@ -75,6 +75,16 @@
                     "type": "string",
                     "default": "",
                     "description": "Indicates the configuration file for the selected engine"
+                },
+				"pascal.format.indent": {
+					"type": "number",
+					"default": 2,
+					"description": "The number of spaces used for indentation"
+				},
+				"pascal.format.wrapLineLength": {
+					"type": "number",
+					"default": 80,
+					"description": "Maximum amount of characters per line"
 				}
             }
         }

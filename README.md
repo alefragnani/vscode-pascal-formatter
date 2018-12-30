@@ -61,6 +61,18 @@ You can choose which formatter engine to use _(required)_:
     "pascal.formatter.engineParameters": "C:\\FPC\\2.6.4\\bin\\i386-win32\\default.cfg"
 ```
 
+If you decide to use **FreePascal PToP**, you have two additional settings:
+
+* The number of spaces used for indentation
+```json
+    "pascal.format.indent": 2 
+```
+
+* Maximum amount of characters per line
+```json
+    "pascal.format.wrapLineLength": 80
+```
+
 # Available Commands
 
 The extension seamlessly integrates with the `Format Document` and `Format Selection` commands **Visual Studio Code**.
