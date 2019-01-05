@@ -16,7 +16,7 @@ export class WhatsNewPascalFormatterContentProvider implements ContentProvider {
     provideChangeLog(): ChangeLogItem[] {
         let changeLog: ChangeLogItem[] = [];
         changeLog.push({kind: ChangeLogKind.NEW, message: "<b>OmniPascal</b> extension support"});
-        changeLog.push({kind: ChangeLogKind.CHANGED, message: `Extracted from <b>Pascal</b> extension 
+        changeLog.push({kind: ChangeLogKind.CHANGED, message: `Extracted from my <b>Pascal</b> extension 
             <a title=\"Open Pascal Extension\" href=\"https://github.com/alefragnani/vscode-language-pascal/\">
             Pascal Extension</a>)</b>`});
         changeLog.push({kind: ChangeLogKind.FIXED, message: `Settings not listed under <b>Contributions</b> 
