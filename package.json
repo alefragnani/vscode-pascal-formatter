@@ -2,7 +2,7 @@
     "name": "pascal-formatter",
     "displayName": "Pascal Formatter",
     "description": "Source code formatter for Pascal",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "publisher": "alefragnani",
     "galleryBanner": {
         "color": "#4682B4",
@@ -52,30 +52,40 @@
                 "command": "pascalFormatter.whatsNew",
                 "title": "Pascal Formatter: What's New"
             }
-        ]
-    },
-    "configuration": {
-        "type": "object",
-        "title": "Pascal Formatter",
-        "properties": {
-            "pascal.formatter.engine": {
-                "type": "string",
-                "default": "",
-                "description": "Choose the Formatter engine to be used",
-                "enum": [
-                    "jcf",
-                    "ptop"
-                ]
-            },
-            "pascal.formatter.enginePath": {
-                "type": "string",
-                "default": "",
-                "description": "Indicates the Formatter app path"
-            },
-            "pascal.formatter.engineParameters": {
-                "type": "string",
-                "default": "",
-                "description": "Indicates the configuration file for the selected engine"
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Pascal Formatter",
+            "properties": {
+                "pascal.formatter.engine": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Choose the Formatter engine to be used",
+                    "enum": [
+                        "jcf",
+                        "ptop"
+                    ]
+                },
+                "pascal.formatter.enginePath": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Indicates the Formatter app path"
+                },
+                "pascal.formatter.engineParameters": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Indicates the configuration file for the selected engine"
+                },
+				"pascal.format.indent": {
+					"type": "number",
+					"default": 2,
+					"description": "The number of spaces used for indentation"
+				},
+				"pascal.format.wrapLineLength": {
+					"type": "number",
+					"default": 80,
+					"description": "Maximum amount of characters per line"
+				}
             }
         }
     },
