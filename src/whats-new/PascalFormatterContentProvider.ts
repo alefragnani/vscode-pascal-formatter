@@ -28,7 +28,7 @@ export class WhatsNewPascalFormatterContentProvider implements ContentProvider {
 
     provideSponsors(): Sponsor[] {
         let sponsors: Sponsor[] = [];
-        return sponsors
+        return sponsors;
     }
    
 }

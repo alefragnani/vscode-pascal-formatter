@@ -243,7 +243,7 @@ export function activate(context: vscode.ExtensionContext) {
         return new Promise((resolve, reject) => {
 
             let enginePath: string = vscode.workspace.getConfiguration('pascal').get('formatter.enginePath', '');
-            if (enginePath == '') {
+            if (enginePath === '') {
                 reject('The \"pascal.formatter.enginePath\" setting is not defined. Please configure.');
                 return;
             }
@@ -259,7 +259,7 @@ export function activate(context: vscode.ExtensionContext) {
                 'engineParameters': engineParameters,
                 'formatIndent': formatIndent,
                 'formatWrapLineLength': formatWrapLineLength
-            })
+            });
         });
     }
     
