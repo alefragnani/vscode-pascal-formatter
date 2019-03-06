@@ -10,7 +10,6 @@ import * as formatter from './formatter';
 import fs = require('fs');
 import path = require('path');
 import cp = require('child_process');
-var opener = require('opener');
 import { WhatsNewManager } from '../vscode-whats-new/src/Manager';
 import { WhatsNewPascalFormatterContentProvider } from './whats-new/PascalFormatterContentProvider';
 
@@ -218,11 +217,11 @@ export function activate(context: vscode.ExtensionContext) {
 
                     switch (option.title) {
                         case optionJCF.title:
-                            opener('http://jedicodeformat.sourceforge.net/');
+                            vscode.env.openExternal(vscode.Uri.parse("http://jedicodeformat.sourceforge.net/"));
                             break;
 
                         case optionPTOP.title:
-                            opener('http://www.freepascal.org/tools/ptop.var');
+                            vscode.env.openExternal(vscode.Uri.parse("http://www.freepascal.org/tools/ptop.var"));
                             break;
 
                         default:

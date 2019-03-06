@@ -9,7 +9,7 @@
         "theme": "dark"
     },
     "engines": {
-        "vscode": "^1.23.0"
+        "vscode": "^1.31.0"
     },
     "categories": [
         "Formatters",
@@ -76,16 +76,16 @@
                     "default": "",
                     "description": "Indicates the configuration file for the selected engine"
                 },
-				"pascal.format.indent": {
-					"type": "number",
-					"default": 2,
-					"description": "The number of spaces used for indentation"
-				},
-				"pascal.format.wrapLineLength": {
-					"type": "number",
-					"default": 80,
-					"description": "Maximum amount of characters per line"
-				}
+                "pascal.format.indent": {
+                    "type": "number",
+                    "default": 2,
+                    "description": "The number of spaces used for indentation"
+                },
+                "pascal.format.wrapLineLength": {
+                    "type": "number",
+                    "default": 80,
+                    "description": "Maximum amount of characters per line"
+                }
             }
         }
     },
@@ -96,12 +96,9 @@
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
-    "dependencies": {
-        "opener": "^1.5.1"
-    },
     "devDependencies": {
         "typescript": "^3.1.6",
-        "vscode": "^1.1.21",
+        "vscode": "^1.1.28",
         "tslint": "^5.8.0",
         "@types/node": "^8.10.25",
         "@types/mocha": "^2.2.42"
