@@ -1,3 +1,10 @@
+## [2.2.0] - 2019-03-14
+### Added
+- Use new VS Code API - Open Resource in Browser (issue [#8](https://github.com/alefragnani/vscode-pascal-formatter/issues/8))
+
+### Fixed
+- What's New page broken in VS Code 1.32 due to CSS API changes
+
 ## [2.1.0] - 2019-01-05
 ### Added
 - Settings missed from transfer (issue [#7](https://github.com/alefragnani/vscode-pascal-formatter/issues/7))
