@@ -101,7 +101,7 @@
     "devDependencies": {
         "@types/node": "^8.10.25",
         "typescript": "^3.1.6",
-        "vscode": "^1.1.28",
+        "vscode": "^1.1.22",
         "tslint": "^5.8.0",
         "@types/mocha": "^2.2.42",
         "webpack": "^4.19.1",
