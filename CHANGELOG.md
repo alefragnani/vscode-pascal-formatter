@@ -1,3 +1,12 @@
+## [2.2.1] - 2020-08-02
+### Fixed
+- Security Alert: elliptic (dependabot [PR #22](https://github.com/alefragnani/vscode-pascal-formatter/pull/22))
+- Security Alert: acorn (dependabot [PR #18](https://github.com/alefragnani/vscode-pascal-formatter/pull/18))
+- Security Alert: js-yaml (dependabot [PR #14](https://github.com/alefragnani/vscode-pascal-formatter/pull/14))
+- Security Alert: fstream (dependabot [PR #13](https://github.com/alefragnani/vscode-pascal-formatter/pull/13)
+- Security Alert: tar (dependabot [PR #12](https://github.com/alefragnani/vscode-pascal-formatter/pull/12))
+- Security Alert: mixin-deep (dependabot [PR #11](https://github.com/alefragnani/vscode-pascal-formatter/pull/11))
+
 ## [2.2.0] - 2019-03-14
 ### Added
 - Use new VS Code API - Open Resource in Browser (issue [#8](https://github.com/alefragnani/vscode-pascal-formatter/issues/8))
