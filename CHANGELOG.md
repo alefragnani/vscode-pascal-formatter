@@ -1,4 +1,7 @@
-## [2.2.1] - 2020-08-02
+## [2.3.0] - 2020-08-??
+### Internal
+- Support VS Code Package Split (issue [#16](https://github.com/alefragnani/vscode-pascal-formatter/issues/16))
+
 ### Fixed
 - Security Alert: elliptic (dependabot [PR #22](https://github.com/alefragnani/vscode-pascal-formatter/pull/22))
 - Security Alert: acorn (dependabot [PR #18](https://github.com/alefragnani/vscode-pascal-formatter/pull/18))
