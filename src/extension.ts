@@ -221,7 +221,7 @@ export function activate(context: vscode.ExtensionContext) {
                             break;
 
                         case optionPTOP.title:
-                            vscode.env.openExternal(vscode.Uri.parse("http://www.freepascal.org/tools/ptop.var"));
+                            vscode.env.openExternal(vscode.Uri.parse("https://www.freepascal.org/tools/ptop.html"));
                             break;
 
                         default:
