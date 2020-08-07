@@ -10,8 +10,8 @@ import * as formatter from './formatter';
 import fs = require('fs');
 import path = require('path');
 import cp = require('child_process');
-import { WhatsNewManager } from '../vscode-whats-new/src/Manager';
-import { WhatsNewPascalFormatterContentProvider } from './whats-new/contentProvider';
+import { Container } from './container';
+import { registerWhatsNew } from './whats-new/commands';
 
 const documentSelector = [
     { language: 'pascal', scheme: 'file' },
@@ -24,12 +24,10 @@ const documentSelector = [
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-    const provider = new WhatsNewPascalFormatterContentProvider();
-    const viewer = new WhatsNewManager(context).registerContentProvider("pascal-formatter", provider);
-    viewer.showPageInActivation();
-    context.subscriptions.push(vscode.commands.registerCommand('pascalFormatter.whatsNew', () => viewer.showPage()));
+    Container.context = context;
 
-    //
+    registerWhatsNew();
+
     vscode.commands.registerCommand('pascalFormatter.editFormatterParameters', () => {
 
         checkEngineDefined()
