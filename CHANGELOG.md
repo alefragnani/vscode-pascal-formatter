@@ -3,6 +3,7 @@
 - Support VS Code Package Split (issue [#16](https://github.com/alefragnani/vscode-pascal-formatter/issues/16))
 
 ### Fixed
+- PtoP download link (issue [#19](https://github.com/alefragnani/vscode-pascal-formatter/issues/19))
 - Security Alert: elliptic (dependabot [PR #22](https://github.com/alefragnani/vscode-pascal-formatter/pull/22))
 - Security Alert: acorn (dependabot [PR #18](https://github.com/alefragnani/vscode-pascal-formatter/pull/18))
 - Security Alert: js-yaml (dependabot [PR #14](https://github.com/alefragnani/vscode-pascal-formatter/pull/14))
