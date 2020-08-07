@@ -14,20 +14,20 @@ export class WhatsNewPascalFormatterContentProvider implements ContentProvider {
     }
 
     provideChangeLog(): ChangeLogItem[] {
-        let changeLog: ChangeLogItem[] = [];
+        const changeLog: ChangeLogItem[] = [];
         changeLog.push({kind: ChangeLogKind.NEW, message: "<b>OmniPascal</b> extension support"});
         changeLog.push({kind: ChangeLogKind.CHANGED, message: `Extracted from my <b>Pascal</b> extension 
-            <a title=\"Open Pascal Extension\" href=\"https://github.com/alefragnani/vscode-language-pascal/\">
+            <a title="Open Pascal Extension" href="https://github.com/alefragnani/vscode-language-pascal/">
             Pascal Extension</a>)</b>`});
         changeLog.push({kind: ChangeLogKind.FIXED, message: `Settings not listed under <b>Contributions</b> 
-            (<a title=\"Open Issue #6\" 
-            href=\"https://github.com/alefragnani/vscode-pascal-formatter/issues/6\">
+            (<a title="Open Issue #6" 
+            href="https://github.com/alefragnani/vscode-pascal-formatter/issues/6">
             Issue #6</a>)</b>`});
         return changeLog;
     }
 
     provideSponsors(): Sponsor[] {
-        let sponsors: Sponsor[] = [];
+        const sponsors: Sponsor[] = [];
         return sponsors;
     }
    

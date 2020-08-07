@@ -11,7 +11,7 @@ import fs = require('fs');
 import path = require('path');
 import cp = require('child_process');
 import { WhatsNewManager } from '../vscode-whats-new/src/Manager';
-import { WhatsNewPascalFormatterContentProvider } from './whats-new/PascalFormatterContentProvider';
+import { WhatsNewPascalFormatterContentProvider } from './whats-new/contentProvider';
 
 const documentSelector = [
     { language: 'pascal', scheme: 'file' },
@@ -24,20 +24,8 @@ const documentSelector = [
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-    // interface EngineParams {
-    //     engine: string;
-    //     enginePath: string;
-    //     engineParameters: string;
-    //     formatIndent: number;
-    //     formatWrapLineLength: number;
-    // }
-
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    // console.log('Congratulations, your extension "vscode-pascal-formatter" is now active!');
-
-    let provider = new WhatsNewPascalFormatterContentProvider();
-    let viewer = new WhatsNewManager(context).registerContentProvider("pascal-formatter", provider);
+    const provider = new WhatsNewPascalFormatterContentProvider();
+    const viewer = new WhatsNewManager(context).registerContentProvider("pascal-formatter", provider);
     viewer.showPageInActivation();
     context.subscriptions.push(vscode.commands.registerCommand('pascalFormatter.whatsNew', () => viewer.showPage()));
 
@@ -52,10 +40,10 @@ export function activate(context: vscode.ExtensionContext) {
 
                         let engineParametersFile: string = engineParameters['engineParameters'];
                         if (engineParametersFile === '') {
-                            var optionGenerate = <vscode.MessageItem>{
+                            const optionGenerate = <vscode.MessageItem>{
                                 title: "Generate"
                             };
-                            vscode.window.showErrorMessage('The \"pascal.formatter.engineParameters\" setting is not defined. Would you like to generate the default?', optionGenerate).then(option => {
+                            vscode.window.showErrorMessage('The "pascal.formatter.engineParameters" setting is not defined. Would you like to generate the default?', optionGenerate).then(option => {
                                 // nothing selected
                                 if (typeof option === 'undefined') {
                                     return;
@@ -93,12 +81,12 @@ export function activate(context: vscode.ExtensionContext) {
                 configFileName = path.basename(enginePath, path.extname(enginePath)) + '.cfg';
                 configFileName = path.join(path.dirname(enginePath), configFileName);
                 
-                let command: string = "\"" + enginePath + "\" -g " + configFileName;
+                const command: string = "\"" + enginePath + "\" -g " + configFileName;
                 cp.exec(command);
             } else { // jcf -> must be JCFSettings.cfg
                 configFileName = path.join(path.dirname(enginePath), 'JCFSettings.cfg');
-                let jsonFile: string = fs.readFileSync(context.asAbsolutePath('jcfsettings.json'), 'UTF8');
-                let xml = JSON.parse(jsonFile);
+                const jsonFile: string = fs.readFileSync(context.asAbsolutePath('jcfsettings.json'), 'UTF8');
+                const xml = JSON.parse(jsonFile);
                 
                 console.log(xml.defaultConfig.join('\n'));
                 fs.writeFileSync(configFileName, xml.defaultConfig.join('\n'));
@@ -119,11 +107,9 @@ export function activate(context: vscode.ExtensionContext) {
                         checkEngineParametersDefined(engineType.toString())
                             .then((engineParameters) => {
 
-                                let f: formatter.Formatter;
-                                f = new formatter.Formatter(document, options);
+                                const f: formatter.Formatter = new formatter.Formatter(document, options);
 
-                                let range: vscode.Range;
-                                range = new vscode.Range(
+                                const range: vscode.Range = new vscode.Range(
                                     0, 0,
                                     document.lineCount,
                                     document.lineAt(document.lineCount - 1).range.end.character
@@ -161,15 +147,14 @@ export function activate(context: vscode.ExtensionContext) {
                     .then((engineType) => {
                         
                         if (!engineSupportsRange(engineType.toString(), document, range)) {
-                            reject('The selected engine \"' + engineType.toString() + '\" does not support selection.');
+                            reject('The selected engine "' + engineType.toString() + '" does not support selection.');
                             return;
                         }
 
                         checkEngineParametersDefined(engineType.toString())
                             .then((engineParameters) => {
 
-                                let f: formatter.Formatter;
-                                f = new formatter.Formatter(document, options);
+                                const f: formatter.Formatter = new formatter.Formatter(document, options);
                                 f.format(range, engineParameters['engine'], engineParameters['enginePath'], engineParameters['engineParameters'], engineParameters['formatIndent'], engineParameters['formatWrapLineLength'])
                                     .then((formattedXml) => {
                                         resolve([new vscode.TextEdit(range, formattedXml.toString())]);
@@ -200,15 +185,15 @@ export function activate(context: vscode.ExtensionContext) {
 
         return new Promise((resolve, reject) => {
 
-            let engineType: string = vscode.workspace.getConfiguration('pascal').get('formatter.engine', '');
+            const engineType: string = vscode.workspace.getConfiguration('pascal').get('formatter.engine', '');
             if (engineType === '') {
-                var optionJCF = <vscode.MessageItem>{
+                const optionJCF = <vscode.MessageItem>{
                     title: "Jedi Code Format"
                 };
-                var optionPTOP = <vscode.MessageItem>{
+                const optionPTOP = <vscode.MessageItem>{
                     title: "FreePascal PtoP"
                 };
-                vscode.window.showErrorMessage('The \"pascal.formatter.engine\" setting is not defined. Do you want to download some formatter tool first?', optionJCF, optionPTOP).then(option => {
+                vscode.window.showErrorMessage('The "pascal.formatter.engine" setting is not defined. Do you want to download some formatter tool first?', optionJCF, optionPTOP).then(option => {
                     // nothing selected
                     if (typeof option === 'undefined') {
                         reject('undefined');
@@ -241,16 +226,16 @@ export function activate(context: vscode.ExtensionContext) {
 
         return new Promise((resolve, reject) => {
 
-            let enginePath: string = vscode.workspace.getConfiguration('pascal').get('formatter.enginePath', '');
+            const enginePath: string = vscode.workspace.getConfiguration('pascal').get('formatter.enginePath', '');
             if (enginePath === '') {
-                reject('The \"pascal.formatter.enginePath\" setting is not defined. Please configure.');
+                reject('The "pascal.formatter.enginePath" setting is not defined. Please configure.');
                 return;
             }
 
-            let engineParameters: string = vscode.workspace.getConfiguration('pascal').get('formatter.engineParameters', '');
+            const engineParameters: string = vscode.workspace.getConfiguration('pascal').get('formatter.engineParameters', '');
 
-            let formatIndent: number = vscode.workspace.getConfiguration('pascal').get('format.indent', 0);
-            let formatWrapLineLength: number = vscode.workspace.getConfiguration('pascal').get('format.wrapLineLength', 0);
+            const formatIndent: number = vscode.workspace.getConfiguration('pascal').get('format.indent', 0);
+            const formatWrapLineLength: number = vscode.workspace.getConfiguration('pascal').get('format.wrapLineLength', 0);
 
             resolve({
                 'engine': engine,
@@ -273,8 +258,4 @@ export function activate(context: vscode.ExtensionContext) {
                    (range.end.character === document.lineAt(document.lineCount - 1).range.end.character);               
         }
     }
-}
-
-// this method is called when your extension is deactivated
-export function deactivate() {
 }

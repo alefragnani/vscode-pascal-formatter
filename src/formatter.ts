@@ -48,11 +48,11 @@ export class Formatter {
                 this._document.lineAt(this._document.lineCount - 1).range.end.character
             );
 
-            let textToFormat = this._document.getText(range);
-            let tempFile: string = npath.join(os.tmpdir(), 'tmp.tmp.pas');
+            const textToFormat = this._document.getText(range);
+            const tempFile: string = npath.join(os.tmpdir(), 'tmp.tmp.pas');
             let command: string;
-            let tempFileOut: string = npath.join(os.tmpdir(), 'tmp.tmp.out');
-            let configFileParameters: string = '';
+            const tempFileOut: string = npath.join(os.tmpdir(), 'tmp.tmp.out');
+            let configFileParameters = '';
 
             fs.writeFileSync(tempFile, textToFormat);
 
@@ -66,24 +66,24 @@ export class Formatter {
                             configFileParameters = ' -c ' + parameters; 
                         }
                         
-                        let indentConfig: string = '';
+                        let indentConfig = '';
                         if (indent > 0) {
                             indentConfig = ' -i ' + indent;
                         }
                         
-                        let wrapLineLengthConfig: string = '';
+                        let wrapLineLengthConfig = '';
                         if (wrapLineLength > 0) {
                             wrapLineLengthConfig = ' -l ' + wrapLineLength;
                         }
                         
-                        command = "\"" + path + "\" " + configFileParameters + indentConfig + wrapLineLengthConfig + ' \"$file\" \"$outfile\" ';
+                        command = "\"" + path + "\" " + configFileParameters + indentConfig + wrapLineLengthConfig + ' "$file" "$outfile" ';
                         command = command.replace('$file', tempFile);
                         command = command.replace('$outfile', tempFileOut);   
                     } else { // jcf
                         if (parameters !== '') {
                             configFileParameters = ' -config=' + parameters; 
                         }
-                        command = "\"" + path + "\" " + configFileParameters + '  -y -F \"$file\" ';
+                        command = "\"" + path + "\" " + configFileParameters + '  -y -F "$file" ';
                         command = command.replace('$file', tempFile);
                     }
                     
@@ -96,7 +96,7 @@ export class Formatter {
                             reject(stdout.toString());
                         }
                         else {
-                            let formattedXml: string = fs.readFileSync(tempFileOut, 'utf8');
+                            const formattedXml: string = fs.readFileSync(tempFileOut, 'utf8');
                             resolve(formattedXml);
                         }
                     });
