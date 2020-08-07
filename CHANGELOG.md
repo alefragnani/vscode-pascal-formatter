@@ -1,5 +1,6 @@
-## [2.3.0] - 2020-08-??
+## [2.3.0] - 2020-08-07
 ### Internal
+- Migrate TSLint to ESLint (issue [#21](https://github.com/alefragnani/vscode-pascal-formatter/issues/21))
 - Support VS Code Package Split (issue [#16](https://github.com/alefragnani/vscode-pascal-formatter/issues/16))
 
 ### Fixed
