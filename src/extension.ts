@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
 
                         let engineParametersFile: string = engineParameters['engineParameters'];
                         if (engineParametersFile === '') {
-                            if (engineType === 'delphi') {
+                            if (engineType === 'embarcadero') {
                                 vscode.window.showErrorMessage('The "pascal.formatter.engineParameters" setting is not defined');
                                 return;
                             }
@@ -250,7 +250,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         if (engine === 'ptop') {
             return true;
-        } else { // jcf and delphi formatter
+        } else { // jcf and embarcadero formatter
             return (range.start.character === 0) &&
                 (range.start.line === 0) &&
                 (range.end.line === document.lineCount - 1) &&

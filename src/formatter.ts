@@ -61,7 +61,7 @@ export class Formatter {
 
                 try {
                     
-                    if (engine === 'delphi') {
+                    if (engine === 'embarcadero') {
                         if (parameters !== '') {
                             configFileParameters = ' -config ' + parameters; 
                         }
