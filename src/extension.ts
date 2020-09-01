@@ -38,6 +38,10 @@ export function activate(context: vscode.ExtensionContext) {
 
                         let engineParametersFile: string = engineParameters['engineParameters'];
                         if (engineParametersFile === '') {
+                            if (engineType === 'delphi') {
+                                vscode.window.showErrorMessage('The "pascal.formatter.engineParameters" setting is not defined');
+                                return;
+                            }
                             const optionGenerate = <vscode.MessageItem>{
                                 title: "Generate"
                             };
@@ -78,18 +82,17 @@ export function activate(context: vscode.ExtensionContext) {
             if (engine === 'ptop') { // can be anyfilename.cfg
                 configFileName = path.basename(enginePath, path.extname(enginePath)) + '.cfg';
                 configFileName = path.join(path.dirname(enginePath), configFileName);
-                
+
                 const command: string = "\"" + enginePath + "\" -g " + configFileName;
                 cp.exec(command);
             } else { // jcf -> must be JCFSettings.cfg
                 configFileName = path.join(path.dirname(enginePath), 'JCFSettings.cfg');
                 const jsonFile: string = fs.readFileSync(context.asAbsolutePath('jcfsettings.json'), 'UTF8');
                 const xml = JSON.parse(jsonFile);
-                
+
                 console.log(xml.defaultConfig.join('\n'));
                 fs.writeFileSync(configFileName, xml.defaultConfig.join('\n'));
             }
-
             return configFileName;
         }
     });
@@ -143,7 +146,7 @@ export function activate(context: vscode.ExtensionContext) {
 
                 checkEngineDefined()
                     .then((engineType) => {
-                        
+
                         if (!engineSupportsRange(engineType.toString(), document, range)) {
                             reject('The selected engine "' + engineType.toString() + '" does not support selection.');
                             return;
@@ -177,8 +180,6 @@ export function activate(context: vscode.ExtensionContext) {
     }));
 
 
-
-    //
     function checkEngineDefined() {
 
         return new Promise((resolve, reject) => {
@@ -244,16 +245,16 @@ export function activate(context: vscode.ExtensionContext) {
             });
         });
     }
-    
-    function engineSupportsRange(engine:string, document: vscode.TextDocument, range: vscode.Range): boolean {
-        
+
+    function engineSupportsRange(engine: string, document: vscode.TextDocument, range: vscode.Range): boolean {
+
         if (engine === 'ptop') {
             return true;
-        } else { // jcf
-            return (range.start.character === 0) && 
-                   (range.start.line === 0) && 
-                   (range.end.line === document.lineCount - 1) &&
-                   (range.end.character === document.lineAt(document.lineCount - 1).range.end.character);               
+        } else { // jcf and delphi formatter
+            return (range.start.character === 0) &&
+                (range.start.line === 0) &&
+                (range.end.line === document.lineCount - 1) &&
+                (range.end.character === document.lineAt(document.lineCount - 1).range.end.character);
         }
     }
 }

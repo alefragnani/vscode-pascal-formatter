@@ -62,6 +62,7 @@
                     "default": "",
                     "description": "Choose the Formatter engine to be used",
                     "enum": [
+                        "delphi",
                         "jcf",
                         "ptop"
                     ]

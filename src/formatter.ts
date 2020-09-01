@@ -52,6 +52,7 @@ export class Formatter {
             const tempFile: string = npath.join(os.tmpdir(), 'tmp.tmp.pas');
             let command: string;
             const tempFileOut: string = npath.join(os.tmpdir(), 'tmp.tmp.out');
+            let readFile: string;
             let configFileParameters = '';
 
             fs.writeFileSync(tempFile, textToFormat);
@@ -60,8 +61,14 @@ export class Formatter {
 
                 try {
                     
-                    // 
-                    if (engine === 'ptop') {
+                    if (engine === 'delphi') {
+                        if (parameters !== '') {
+                            configFileParameters = ' -config ' + parameters; 
+                        }
+                        command = "\"" + path + "\" -silent " + configFileParameters + ' "$file" ';
+                        command = command.replace('$file', tempFile);
+                        readFile = tempFile;
+                    } else if (engine === 'ptop') {
                         if (parameters !== '') {
                             configFileParameters = ' -c ' + parameters; 
                         }
@@ -78,13 +85,15 @@ export class Formatter {
                         
                         command = "\"" + path + "\" " + configFileParameters + indentConfig + wrapLineLengthConfig + ' "$file" "$outfile" ';
                         command = command.replace('$file', tempFile);
-                        command = command.replace('$outfile', tempFileOut);   
+                        command = command.replace('$outfile', tempFileOut);  
+                        readFile = tempFileOut 
                     } else { // jcf
                         if (parameters !== '') {
                             configFileParameters = ' -config=' + parameters; 
                         }
                         command = "\"" + path + "\" " + configFileParameters + '  -y -F "$file" ';
                         command = command.replace('$file', tempFile);
+                        readFile = tempFileOut
                     }
                     
                     console.log(command);
@@ -96,7 +105,7 @@ export class Formatter {
                             reject(stdout.toString());
                         }
                         else {
-                            const formattedXml: string = fs.readFileSync(tempFileOut, 'utf8');
+                            const formattedXml: string = fs.readFileSync(readFile, 'utf8');
                             resolve(formattedXml);
                         }
                     });
