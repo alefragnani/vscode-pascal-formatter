@@ -1,3 +1,7 @@
+## [2.4.0] - 2020-09-01
+### Added
+- Embarcadero Formatter support (Thanks to @AThePeanut4 [PR #23](https://github.com/alefragnani/vscode-pascal-formatter/pull/23))
+
 ## [2.3.0] - 2020-08-07
 ### Internal
 - Migrate TSLint to ESLint (issue [#21](https://github.com/alefragnani/vscode-pascal-formatter/issues/21))

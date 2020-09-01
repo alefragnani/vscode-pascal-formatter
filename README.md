@@ -3,8 +3,9 @@
   <a title="Learn more about Pascal Formatter" href="http://github.com/alefragnani/vscode-pascal-formatter"><img src="https://raw.githubusercontent.com/alefragnani/vscode-pascal-formatter/master/images/vscode-pascal-formatter-logo-readme.png" alt="Pascal Formatter Logo" width="70%" /></a>
 </p>
 
-# What's new in Pascal Formatter 2.3
+# What's new in Pascal Formatter 2.4
 
+* **Embarcadero Formatter** support
 * **OmniPascal** extension support
 
 # Support
@@ -29,6 +30,8 @@
 
 It adds **Code Formatters** for **Pascal** language and its dialects like **Delphi** and **FreePascal**. 
 
+> This extension was originally extracted from my [Pascal](https://github.com/alefragnani/vscode-language-pascal) extension
+
 # Features
 
 Standardise your **Pascal** code! 
@@ -37,15 +40,17 @@ It uses external tools _(engines)_ to format the code, so you must install them 
 
 * **Jedi Code Format:** http://jedicodeformat.sourceforge.net/ (Windows only)
 * **FreePascal PToP:** http://wiki.freepascal.org/PTop (Windows, Linux and Mac OS X)
+* **Embarcadero Formatter:** http://docwiki.embarcadero.com/RADStudio/Sydney/en/Formatter.EXE,_the_Command_Line_Formatter (Windows only)
 
-> If you intend to format _pieces of selected texts_ instead of _the entire file_, you should use **FreePascal PToP**, because the **Jedi Code Format** only works for entire files. 
+> If you intend to format _pieces of selected texts_ instead of _the entire file_, you should use **FreePascal PToP**, because the **Jedi Code Format** and **Embarcadero Formatter** only works for entire files. 
 
-#### Available settings
+## Available settings
 
 You can choose which formatter engine to use _(required)_:
 
 * `ptop`: FreePascal PToP
 * `jcf`: Jedi Code Formatter
+* `embarcadero`: Embarcadero Formatter
 
 ```json
     "pascal.formatter.engine": "ptop"
@@ -73,7 +78,7 @@ If you decide to use **FreePascal PToP**, you have two additional settings:
     "pascal.format.wrapLineLength": 80
 ```
 
-# Available Commands
+## Available Commands
 
 The extension seamlessly integrates with the `Format Document` and `Format Selection` commands **Visual Studio Code**.
 
@@ -83,7 +88,11 @@ There is also:
 
 * **Pascal Formatter: Edit Formatter Parameters** Opens/Generate the _parameters file_ for the selected engine
 
-> This extension was originally extracted from my [Pascal](https://github.com/alefragnani/vscode-language-pascal) extension
+## Contributors
+
+Special thanks to the people that have contributed to the project:
+
+* @AThePeanut4 - Embarcadero Formatter support ([see PR](https://github.com/alefragnani/vscode-pascal-formatter/pull/23))
 
 # License
 
