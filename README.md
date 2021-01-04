@@ -1,3 +1,8 @@
+[![](https://vsmarketplacebadge.apphb.com/version-short/alefragnani.pascal-formatter.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal-formatter)
+[![](https://vsmarketplacebadge.apphb.com/downloads-short/alefragnani.pascal-formatter.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal-formatter)
+[![](https://vsmarketplacebadge.apphb.com/rating-short/alefragnani.pascal-formatter.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal-formatter)
+[![](https://img.shields.io/github/workflow/status/alefragnani/vscode-pascal-formatter/CI)](https://github.com/alefragnani/vscode-pascal-formatter/actions?query=workflow%3ACI)
+
 <p align="center">
   <br />
   <a title="Learn more about Pascal Formatter" href="http://github.com/alefragnani/vscode-pascal-formatter"><img src="https://raw.githubusercontent.com/alefragnani/vscode-pascal-formatter/master/images/vscode-pascal-formatter-logo-readme.png" alt="Pascal Formatter Logo" width="70%" /></a>
