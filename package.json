@@ -9,7 +9,7 @@
         "theme": "dark"
     },
     "engines": {
-        "vscode": "^1.45.0"
+        "vscode": "^1.56.0"
     },
     "categories": [
         "Formatters",
@@ -31,6 +31,15 @@
         "onCommand:pascalFormatter.whatsNew",
         "*"
     ],
+    "capabilities": {
+        "untrustedWorkspaces": {
+            "supported": "limited",
+            "description": "Trust is required to be able to use choose the formatter tool located inside in this workspace.",
+            "restrictedConfigurations": [
+                "pascal.formatter.enginePath"
+            ]
+        }
+    },
     "main": "./dist/extension",
     "icon": "images/icon.png",
     "license": "SEE LICENSE IN LICENSE.md",
@@ -110,7 +119,7 @@
     },
     "devDependencies": {
         "@types/node": "^10.14.17",
-        "@types/vscode": "^1.45.0",
+        "@types/vscode": "^1.56.0",
         "@typescript-eslint/eslint-plugin": "^3.8.0",
         "@typescript-eslint/parser": "^3.8.0",
         "eslint": "^7.6.0",
