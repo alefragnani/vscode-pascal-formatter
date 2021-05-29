@@ -32,6 +32,7 @@
         "*"
     ],
     "capabilities": {
+        "virtualWorkspaces": true,
         "untrustedWorkspaces": {
             "supported": "limited",
             "description": "Trust is required to be able to use choose the formatter tool located inside in this workspace.",
