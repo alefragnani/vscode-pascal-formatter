@@ -1,14 +1,25 @@
+## [2.5.0] - 2021-06-01
+### Added
+- Support **Workspace Trust** (issue [#31](https://github.com/alefragnani/vscode-pascal-formatter/issues/31))
+- Support **Virtual Workspaces** (issue [#30](https://github.com/alefragnani/vscode-pascal-formatter/issues/30))
+
+### Internal
+- Security Alert: lodash (dependabot [PR #29](https://github.com/alefragnani/vscode-pascal-formatter/pull/29))
+- Security Alert: ssri (dependabot [PR #28](https://github.com/alefragnani/vscode-pascal-formatter/pull/28))
+- Security Alert: y18n (dependabot [PR #27](https://github.com/alefragnani/vscode-pascal-formatter/pull/27))
+- Security Alert: elliptic (dependabot [PR #26](https://github.com/alefragnani/vscode-pascal-formatter/pull/26))
+
 ## [2.4.0] - 2020-09-01
 ### Added
 - Embarcadero Formatter support (Thanks to @AThePeanut4 [PR #23](https://github.com/alefragnani/vscode-pascal-formatter/pull/23))
 
 ## [2.3.0] - 2020-08-07
+### Fixed
+- PtoP download link (issue [#19](https://github.com/alefragnani/vscode-pascal-formatter/issues/19))
+
 ### Internal
 - Migrate TSLint to ESLint (issue [#21](https://github.com/alefragnani/vscode-pascal-formatter/issues/21))
 - Support VS Code Package Split (issue [#16](https://github.com/alefragnani/vscode-pascal-formatter/issues/16))
-
-### Fixed
-- PtoP download link (issue [#19](https://github.com/alefragnani/vscode-pascal-formatter/issues/19))
 - Security Alert: elliptic (dependabot [PR #22](https://github.com/alefragnani/vscode-pascal-formatter/pull/22))
 - Security Alert: acorn (dependabot [PR #18](https://github.com/alefragnani/vscode-pascal-formatter/pull/18))
 - Security Alert: js-yaml (dependabot [PR #14](https://github.com/alefragnani/vscode-pascal-formatter/pull/14))

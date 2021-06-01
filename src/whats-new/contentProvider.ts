@@ -16,6 +16,60 @@ export class WhatsNewPascalFormatterContentProvider implements ContentProvider {
     provideChangeLog(): ChangeLogItem[] {
         const changeLog: ChangeLogItem[] = [];
 
+        changeLog.push({ kind: ChangeLogKind.VERSION, detail: { releaseNumber: "2.5.0", releaseDate: "May 2021" } });
+        changeLog.push({
+            kind: ChangeLogKind.NEW,
+            detail: {
+                message: "Support <b>Workspaces Trust</b>",
+                id: 31,
+                kind: IssueKind.Issue
+            }
+        });
+        changeLog.push({
+            kind: ChangeLogKind.NEW,
+            detail: {
+                message: "Support <b>Virtual Workspaces</b>",
+                id: 30,
+                kind: IssueKind.Issue
+            }
+        });
+        changeLog.push({
+            kind: ChangeLogKind.INTERNAL,
+            detail: {
+                message: "Security Alert: lodash",
+                id: 29,
+                kind: IssueKind.PR,
+                kudos: "dependabot"
+            }
+        });
+        changeLog.push({
+            kind: ChangeLogKind.INTERNAL,
+            detail: {
+                message: "Security Alert: ssri",
+                id: 28,
+                kind: IssueKind.PR,
+                kudos: "dependabot"
+            }
+        });
+        changeLog.push({
+            kind: ChangeLogKind.INTERNAL,
+            detail: {
+                message: "Security Alert: y18n",
+                id: 27,
+                kind: IssueKind.PR,
+                kudos: "dependabot"
+            }
+        });
+        changeLog.push({
+            kind: ChangeLogKind.INTERNAL,
+            detail: {
+                message: "Security Alert: elliptic",
+                id: 26,
+                kind: IssueKind.PR,
+                kudos: "dependabot"
+            }
+        });
+
         changeLog.push({ kind: ChangeLogKind.VERSION, detail: { releaseNumber: "2.4.0", releaseDate: "September 2020" } });
         changeLog.push({
             kind: ChangeLogKind.NEW,
@@ -28,6 +82,14 @@ export class WhatsNewPascalFormatterContentProvider implements ContentProvider {
         });
 
         changeLog.push({ kind: ChangeLogKind.VERSION, detail: { releaseNumber: "2.3.0", releaseDate: "August 2020" } });
+        changeLog.push({
+            kind: ChangeLogKind.FIXED,
+            detail: {
+                message: "PtoP download link",
+                id: 19,
+                kind: IssueKind.Issue
+            }
+        });
         changeLog.push({
             kind: ChangeLogKind.INTERNAL,
             detail: {
@@ -45,15 +107,7 @@ export class WhatsNewPascalFormatterContentProvider implements ContentProvider {
             }
         });
         changeLog.push({
-            kind: ChangeLogKind.FIXED,
-            detail: {
-                message: "PtoP download link",
-                id: 19,
-                kind: IssueKind.Issue
-            }
-        });
-        changeLog.push({
-            kind: ChangeLogKind.FIXED,
+            kind: ChangeLogKind.INTERNAL,
             detail: {
                 message: "Security Alert: elliptic",
                 id: 22,
@@ -62,7 +116,7 @@ export class WhatsNewPascalFormatterContentProvider implements ContentProvider {
             }
         });
         changeLog.push({
-            kind: ChangeLogKind.FIXED,
+            kind: ChangeLogKind.INTERNAL,
             detail: {
                 message: "Security Alert: acorn",
                 id: 18,
