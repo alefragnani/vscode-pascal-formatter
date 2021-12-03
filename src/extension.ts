@@ -87,7 +87,7 @@ export function activate(context: vscode.ExtensionContext) {
                 cp.exec(command);
             } else { // jcf -> must be JCFSettings.cfg
                 configFileName = path.join(path.dirname(enginePath), 'JCFSettings.cfg');
-                const jsonFile: string = fs.readFileSync(context.asAbsolutePath('jcfsettings.json'), 'UTF8');
+                const jsonFile: string = fs.readFileSync(context.asAbsolutePath('jcfsettings.json'), 'utf-8');
                 const xml = JSON.parse(jsonFile);
 
                 console.log(xml.defaultConfig.join('\n'));
