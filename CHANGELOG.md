@@ -1,3 +1,9 @@
+## [2.6.0] - 2021-12-10
+### Internal
+* Add CONTRIBUTING documentation (issue [#33](https://github.com/alefragnani/vscode-pascal-formatter/issues/33))
+* Update dependencies (issue [#35](https://github.com/alefragnani/vscode-pascal-formatter/issues/35))
+- Do not show welcome message if installed by Settings Sync (issue [#34](https://github.com/alefragnani/vscode-pascal-formatter/issues/34))
+
 ## [2.5.0] - 2021-06-01
 ### Added
 - Support **Workspace Trust** (issue [#31](https://github.com/alefragnani/vscode-pascal-formatter/issues/31))
