@@ -1,3 +1,7 @@
+## [2.6.1] - 2022-06-17
+### Internal
+* Add GitHub Sponsors support (PR [#41](https://github.com/alefragnani/vscode-pascal-formatter/pull/41))
+
 ## [2.6.0] - 2021-12-10
 ### Internal
 * Add CONTRIBUTING documentation (issue [#33](https://github.com/alefragnani/vscode-pascal-formatter/issues/33))
