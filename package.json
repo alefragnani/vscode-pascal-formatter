@@ -29,7 +29,7 @@
         "onLanguage:objectpascal",
         "onCommand:pascalFormatter.editFormatterParameters",
         "onCommand:pascalFormatter.whatsNew",
-        "*"
+        "onStartupFinished"
     ],
     "capabilities": {
         "virtualWorkspaces": true,
