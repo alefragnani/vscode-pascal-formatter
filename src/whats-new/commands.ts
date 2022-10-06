@@ -8,12 +8,14 @@ import { Container } from "../container";
 import { WhatsNewManager } from "../../vscode-whats-new/src/Manager";
 import { PascalFormatterContentProvider, PascalFormatterSocialMediaProvider } from "./contentProvider";
 
-export function registerWhatsNew() {
+export async function registerWhatsNew() {
     const provider = new PascalFormatterContentProvider();
     const viewer = new WhatsNewManager(Container.context)
         .registerContentProvider("alefragnani", "pascal-formatter", provider)
         .registerSocialMediaProvider(new PascalFormatterSocialMediaProvider())
-    viewer.showPageInActivation();
+        
+    await viewer.showPageInActivation();
+
     Container.context.subscriptions.push(commands.registerCommand('pascalFormatter.whatsNew', () => viewer.showPage()));
 }
 
