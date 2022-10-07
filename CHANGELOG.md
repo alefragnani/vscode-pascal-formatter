@@ -1,3 +1,9 @@
+## [2.7.0] - 2022-10-07
+### Internal
+- * Improve extension startup (issue [#43](https://github.com/alefragnani/vscode-pascal-formatter/issues/43))
+- * Cleanup extension (issue [#44](https://github.com/alefragnani/vscode-pascal-formatter/issues/44))
+- Security Alert: terser (dependabot [PR #42](https://github.com/alefragnani/vscode-pascal-formatter/pull/42))
+
 ## [2.6.1] - 2022-06-17
 ### Internal
 * Add GitHub Sponsors support (PR [#41](https://github.com/alefragnani/vscode-pascal-formatter/pull/41))

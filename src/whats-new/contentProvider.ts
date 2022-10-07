@@ -24,6 +24,33 @@ export class PascalFormatterContentProvider implements ContentProvider {
     provideChangeLog(): ChangeLogItem[] {
         const changeLog: ChangeLogItem[] = [];
 
+        changeLog.push({ kind: ChangeLogKind.VERSION, detail: { releaseNumber: "2.7.0", releaseDate: "September 2022" } });
+        changeLog.push({
+            kind: ChangeLogKind.INTERNAL,
+            detail: {
+                message: "Improve extension startup",
+                id: 43,
+                kind: IssueKind.Issue
+            }
+        });
+        changeLog.push({
+            kind: ChangeLogKind.INTERNAL,
+            detail: {
+                message: "Cleanup extension",
+                id: 44,
+                kind: IssueKind.Issue
+            }
+        });
+        changeLog.push({
+            kind: ChangeLogKind.INTERNAL,
+            detail: {
+                message: "Security Alert: terser",
+                id: 42,
+                kind: IssueKind.PR,
+                kudos: "dependabot"
+            }
+        });
+
         changeLog.push({ kind: ChangeLogKind.VERSION, detail: { releaseNumber: "2.6.1", releaseDate: "June 2022" } });
         changeLog.push({
             kind: ChangeLogKind.INTERNAL,
@@ -107,17 +134,6 @@ export class PascalFormatterContentProvider implements ContentProvider {
                 id: 26,
                 kind: IssueKind.PR,
                 kudos: "dependabot"
-            }
-        });
-
-        changeLog.push({ kind: ChangeLogKind.VERSION, detail: { releaseNumber: "2.4.0", releaseDate: "September 2020" } });
-        changeLog.push({
-            kind: ChangeLogKind.NEW,
-            detail: {
-                message: "Embarcadero Formatter support",
-                id: 23,
-                kind: IssueKind.PR,
-                kudos: "@AThePeanut4"
             }
         });
 
