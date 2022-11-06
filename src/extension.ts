@@ -189,10 +189,13 @@ export async function activate(context: vscode.ExtensionContext) {
                 const optionJCF = <vscode.MessageItem>{
                     title: "Jedi Code Format"
                 };
+                const optionJCFQ = <vscode.MessageItem>{
+                    title: "JCF (Quadroid)"
+                };
                 const optionPTOP = <vscode.MessageItem>{
                     title: "FreePascal PtoP"
                 };
-                vscode.window.showErrorMessage('The "pascal.formatter.engine" setting is not defined. Do you want to download some formatter tool first?', optionJCF, optionPTOP).then(option => {
+                vscode.window.showErrorMessage('The "pascal.formatter.engine" setting is not defined. Do you want to download some formatter tool first?', optionJCF, optionJCFQ, optionPTOP).then(option => {
                     // nothing selected
                     if (typeof option === 'undefined') {
                         reject('undefined');
@@ -202,6 +205,10 @@ export async function activate(context: vscode.ExtensionContext) {
                     switch (option.title) {
                         case optionJCF.title:
                             vscode.env.openExternal(vscode.Uri.parse("http://jedicodeformat.sourceforge.net/"));
+                            break;
+
+                        case optionJCFQ.title:
+                            vscode.env.openExternal(vscode.Uri.parse("https://github.com/quadroid/jcf-pascal-format"));
                             break;
 
                         case optionPTOP.title:
