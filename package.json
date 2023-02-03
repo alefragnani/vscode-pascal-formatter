@@ -9,7 +9,7 @@
         "theme": "dark"
     },
     "engines": {
-        "vscode": "^1.61.0"
+        "vscode": "^1.74.0"
     },
     "categories": [
         "Formatters",
@@ -27,8 +27,6 @@
     "activationEvents": [
         "onLanguage:pascal",
         "onLanguage:objectpascal",
-        "onCommand:pascalFormatter.editFormatterParameters",
-        "onCommand:pascalFormatter.whatsNew",
         "onStartupFinished"
     ],
     "capabilities": {
@@ -123,7 +121,7 @@
     },
     "devDependencies": {
         "@types/node": "^14.17.27",
-        "@types/vscode": "^1.61.0",
+        "@types/vscode": "^1.74.0",
         "@types/mocha": "^9.0.0",
         "@types/glob": "^7.1.4",
         "@vscode/test-electron": "^1.6.2",
