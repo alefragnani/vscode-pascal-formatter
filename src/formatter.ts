@@ -11,7 +11,7 @@ import npath = require('path');
 
 /*
 
-linux: 
+linux:
     "pascal.formatter.engine": "ptop",
     "pascal.formatter.enginePath": "/usr/bin/ptop",
 
@@ -40,7 +40,7 @@ export class Formatter {
     public format(range: vscode.Range, engine: string, path: string, parameters: string, indent: number, wrapLineLength: number) {
 
         return new Promise((resolve, reject) => {
-        
+
             // entire document - if not range is provided
             range = range || new vscode.Range(
                 0, 0,
@@ -60,42 +60,47 @@ export class Formatter {
             if (textToFormat) {
 
                 try {
-                    
+
                     if (engine === 'embarcadero') {
                         if (parameters !== '') {
-                            configFileParameters = ' -config ' + parameters; 
+                            configFileParameters = ' -config ' + parameters;
                         }
                         command = "\"" + path + "\" -silent " + configFileParameters + ' "$file" ';
                         command = command.replace('$file', tempFile);
                         readFile = tempFile;
                     } else if (engine === 'ptop') {
                         if (parameters !== '') {
-                            configFileParameters = ' -c ' + parameters; 
+                            configFileParameters = ' -c ' + parameters;
                         }
-                        
+
                         let indentConfig = '';
                         if (indent > 0) {
                             indentConfig = ' -i ' + indent;
                         }
-                        
+
                         let wrapLineLengthConfig = '';
                         if (wrapLineLength > 0) {
                             wrapLineLengthConfig = ' -l ' + wrapLineLength;
                         }
-                        
+
                         command = "\"" + path + "\" " + configFileParameters + indentConfig + wrapLineLengthConfig + ' "$file" "$outfile" ';
                         command = command.replace('$file', tempFile);
-                        command = command.replace('$outfile', tempFileOut);  
-                        readFile = tempFileOut 
+                        command = command.replace('$outfile', tempFileOut);
+                        readFile = tempFileOut
                     } else { // jcf
                         if (parameters !== '') {
-                            configFileParameters = ' -config=' + parameters; 
+                            configFileParameters = ' -config=' + parameters;
                         }
-                        command = "\"" + path + "\" " + configFileParameters + '  -y -F "$file" ';
+                        if (engine === 'jcf-quadroid') {
+                            command = "\"" + path + "\" " + configFileParameters + ' -out "$fileout" "$file" ';
+                            command = command.replace('$fileout', tempFileOut);
+                        } else {
+                            command = "\"" + path + "\" " + configFileParameters + ' -y -F "$file" ';
+                        }
                         command = command.replace('$file', tempFile);
                         readFile = tempFileOut
                     }
-                    
+
                     console.log(command);
                     cp.exec(command, function(error, stdout, stderr) {
                         console.log('stdout' + stdout);
@@ -105,7 +110,11 @@ export class Formatter {
                             reject(stdout.toString());
                         }
                         else {
-                            const formattedXml: string = fs.readFileSync(readFile, 'utf8');
+                            let formattedXml: string = fs.readFileSync(readFile, 'utf8');
+                            // remove UTF-8 BOM
+                            if (formattedXml.charCodeAt(0) === 0xfeff) {
+                                formattedXml = formattedXml.substr(1);
+                            }
                             resolve(formattedXml);
                         }
                     });
