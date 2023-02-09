@@ -12,6 +12,7 @@ import path = require('path');
 import cp = require('child_process');
 import { Container } from './container';
 import { registerWhatsNew } from './whats-new/commands';
+import { l10n } from 'vscode';
 
 const documentSelector = [
     { language: 'pascal', scheme: 'file' },
@@ -39,18 +40,18 @@ export async function activate(context: vscode.ExtensionContext) {
                         let engineParametersFile: string = engineParameters['engineParameters'];
                         if (engineParametersFile === '') {
                             if (engineType === 'embarcadero') {
-                                vscode.window.showErrorMessage('The "pascal.formatter.engineParameters" setting is not defined');
+                                vscode.window.showErrorMessage(l10n.t('The "pascal.formatter.engineParameters" setting is not defined'));
                                 return;
                             }
                             const optionGenerate = <vscode.MessageItem>{
-                                title: "Generate"
+                                title: l10n.t("Generate")
                             };
-                            vscode.window.showErrorMessage('The "pascal.formatter.engineParameters" setting is not defined. Would you like to generate the default?', optionGenerate).then(option => {
+                            vscode.window.showErrorMessage(l10n.t('The "pascal.formatter.engineParameters" setting is not defined. Would you like to generate the default?'), optionGenerate).then(option => {
                                 // nothing selected
                                 if (typeof option === 'undefined') {
                                     return;
                                 }
-                                if (option.title === "Generate") {
+                                if (option.title === l10n.t("Generate")) {
                                     engineParametersFile = generateDefaultEngineParameters(engineParameters['engine'],
                                         engineParameters['enginePath']);
                                     vscode.workspace.openTextDocument(engineParametersFile).then(doc => {
@@ -122,7 +123,7 @@ export async function activate(context: vscode.ExtensionContext) {
                                     })
                                     .catch((error) => {
                                         console.log('format: ' + error);
-                                        vscode.window.showErrorMessage('Error while formatting: ' + error);
+                                        vscode.window.showErrorMessage(l10n.t('Error while formatting: {0}', error));
                                     });
                             })
                             .catch((error) => {
@@ -133,7 +134,7 @@ export async function activate(context: vscode.ExtensionContext) {
                     })
                     .catch((error) => {
                         //reject(error);
-                        vscode.window.setStatusBarMessage('checkEngineDefined: ' + error, 5000);
+                        vscode.window.setStatusBarMessage(l10n.t('checkEngineDefined: {0}', error), 5000);
                     });
             });
         }
@@ -148,7 +149,7 @@ export async function activate(context: vscode.ExtensionContext) {
                     .then((engineType) => {
 
                         if (!engineSupportsRange(engineType.toString(), document, range)) {
-                            reject('The selected engine "' + engineType.toString() + '" does not support selection.');
+                            reject(l10n.t('The selected engine "{0}" does not support selection.', engineType.toString()));
                             return;
                         }
 
@@ -162,7 +163,7 @@ export async function activate(context: vscode.ExtensionContext) {
                                     })
                                     .catch((error) => {
                                         console.log('format: ' + error);
-                                        vscode.window.showErrorMessage('Error while formatting: ' + error);
+                                        vscode.window.showErrorMessage(l10n.t('Error while formatting: {0}', error));
                                     });
                             })
                             .catch((error) => {
@@ -173,7 +174,7 @@ export async function activate(context: vscode.ExtensionContext) {
                     })
                     .catch((error) => {
                         //reject(error);
-                        vscode.window.setStatusBarMessage('checkEngineDefined: ' + error, 5000);
+                        vscode.window.setStatusBarMessage(l10n.t('checkEngineDefined: {0}', error), 5000);
                     });
             });
         }
@@ -195,7 +196,7 @@ export async function activate(context: vscode.ExtensionContext) {
                 const optionPTOP = <vscode.MessageItem>{
                     title: "FreePascal PtoP"
                 };
-                vscode.window.showErrorMessage('The "pascal.formatter.engine" setting is not defined. Do you want to download some formatter tool first?', optionJCF, optionJCFQ, optionPTOP).then(option => {
+                vscode.window.showErrorMessage(l10n.t('The "pascal.formatter.engine" setting is not defined. Do you want to download some formatter tool first?'), optionJCF, optionJCFQ, optionPTOP).then(option => {
                     // nothing selected
                     if (typeof option === 'undefined') {
                         reject('undefined');
@@ -234,7 +235,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
             const enginePath: string = vscode.workspace.getConfiguration('pascal').get('formatter.enginePath', '');
             if (enginePath === '') {
-                reject('The "pascal.formatter.enginePath" setting is not defined. Please configure.');
+                reject(l10n.t('The "pascal.formatter.enginePath" setting is not defined. Please configure.'));
                 return;
             }
 

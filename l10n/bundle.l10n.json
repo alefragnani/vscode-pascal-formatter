@@ -1,0 +1,10 @@
+{
+    "The \"pascal.formatter.engineParameters\" setting is not defined": "The \"pascal.formatter.engineParameters\" setting is not defined",
+    "Generate": "Generate",
+    "The \"pascal.formatter.engineParameters\" setting is not defined. Would you like to generate the default?": "The \"pascal.formatter.engineParameters\" setting is not defined. Would you like to generate the default?",
+    "Error while formatting: {0}": "Error while formatting: {0}",
+    "checkEngineDefined: {0}": "checkEngineDefined: {0}",
+    "The selected engine \"{0}\" does not support selection.": "The selected engine \"{0}\" does not support selection.",
+    "The \"pascal.formatter.engine\" setting is not defined. Do you want to download some formatter tool first?": "The \"pascal.formatter.engine\" setting is not defined. Do you want to download some formatter tool first?",
+    "The \"pascal.formatter.enginePath\" setting is not defined. Please configure.": "The \"pascal.formatter.enginePath\" setting is not defined. Please configure."
+}

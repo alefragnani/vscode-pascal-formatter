@@ -40,6 +40,7 @@
         }
     },
     "main": "./dist/extension",
+    "l10n": "./l10n",
     "icon": "images/icon.png",
     "license": "SEE LICENSE IN LICENSE.md",
     "homepage": "https://github.com/alefragnani/vscode-pascal-formatter/blob/master/README.md",
@@ -57,21 +58,23 @@
         "commands": [
             {
                 "command": "pascalFormatter.editFormatterParameters",
-                "title": "Pascal Formatter: Edit Formatter Parameters"
+                "title": "%pascal.formatter.commands.editFormatterParameters.title%",
+                "category": "Pascal Formatter"
             },
             {
                 "command": "pascalFormatter.whatsNew",
-                "title": "Pascal Formatter: What's New"
+                "title": "%pascal.formatter.commands.whatsNew.title%",
+                "category": "Pascal Formatter"
             }
         ],
         "configuration": {
             "type": "object",
-            "title": "Pascal Formatter",
+            "title": "%pascal.formatter.configuration.title%",
             "properties": {
                 "pascal.formatter.engine": {
                     "type": "string",
                     "default": "",
-                    "description": "Choose the Formatter engine to be used",
+                    "description": "%pascal.formatter.configuration.engine.description%",
                     "enum": [
                         "embarcadero",
                         "jcf",
@@ -82,22 +85,22 @@
                 "pascal.formatter.enginePath": {
                     "type": "string",
                     "default": "",
-                    "description": "Indicates the Formatter app path"
+                    "description": "%pascal.formatter.configuration.enginePath.description%"
                 },
                 "pascal.formatter.engineParameters": {
                     "type": "string",
                     "default": "",
-                    "description": "Indicates the configuration file for the selected engine"
+                    "description": "%pascal.formatter.configuration.engineParameters.description%"
                 },
                 "pascal.format.indent": {
                     "type": "number",
                     "default": 2,
-                    "description": "The number of spaces used for indentation"
+                    "description": "%pascal.formatter.configuration.indent.description%"
                 },
                 "pascal.format.wrapLineLength": {
                     "type": "number",
                     "default": 80,
-                    "description": "Maximum amount of characters per line"
+                    "description": "%pascal.formatter.configuration.wrapLineLength.description%"
                 }
             }
         }
