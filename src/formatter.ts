@@ -8,6 +8,7 @@ import fs = require('fs');
 import cp = require('child_process');
 import os = require('os');
 import npath = require('path');
+import { l10n } from 'vscode';
 
 /*
 
@@ -126,7 +127,7 @@ export class Formatter {
             }
             // the parser didn't return anything we can use, show an error message and return
             else {
-                reject('no text to format');
+                reject(l10n.t('no text to format'));
             }
         });
 
