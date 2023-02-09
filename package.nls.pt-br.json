@@ -1,0 +1,10 @@
+{
+    "pascal.formatter.commands.editFormatterParameters.title": "Editar Parâmetros do Formatador",
+    "pascal.formatter.commands.whatsNew.title": "Novidades",
+    "pascal.formatter.configuration.title": "Pascal Formatter",
+    "pascal.formatter.configuration.engine.description": "Escolha a ferramenta de formatação a ser usado",
+    "pascal.formatter.configuration.enginePath.description": "Indica o caminho do aplicativo Formatador",
+    "pascal.formatter.configuration.engineParameters.description": "Indica o arquivo de configuração para o formatador selecionado",
+    "pascal.formatter.configuration.indent.description": "O número de espaços em branco a serem usados na indentação",
+    "pascal.formatter.configuration.wrapLineLength.description": "Número máximo de caracteres por linha"
+}
