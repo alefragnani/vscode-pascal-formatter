@@ -1,7 +1,7 @@
-[![](https://vsmarketplacebadge.apphb.com/version-short/alefragnani.pascal-formatter.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal-formatter)
-[![](https://vsmarketplacebadge.apphb.com/downloads-short/alefragnani.pascal-formatter.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal-formatter)
-[![](https://vsmarketplacebadge.apphb.com/rating-short/alefragnani.pascal-formatter.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal-formatter)
-[![](https://img.shields.io/github/workflow/status/alefragnani/vscode-pascal-formatter/CI)](https://github.com/alefragnani/vscode-pascal-formatter/actions?query=workflow%3ACI)
+[![](https://vsmarketplacebadges.dev/version-short/alefragnani.pascal-formatter.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal-formatter)
+[![](https://vsmarketplacebadges.dev/downloads-short/alefragnani.pascal-formatter.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal-formatter)
+[![](https://vsmarketplacebadges.dev/rating-short/alefragnani.pascal-formatter.svg)](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal-formatter)
+[![](https://img.shields.io/github/actions/workflow/status/alefragnani/vscode-pascal-formatter/main.yml?branch=master)](https://github.com/alefragnani/vscode-pascal-formatter/actions?query=workflow%3ACI)
 
 <p align="center">
   <br />
