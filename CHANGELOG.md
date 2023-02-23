@@ -1,17 +1,25 @@
+## [2.8.0] - 2023-02-22
+### Added
+- Quadroid JEDI Formatter Support (Thanks to @quadroid [PR #52](https://github.com/alefragnani/vscode-pascal-formatter/pull/52))
+
+### Internal
+- Support **Translation** and **Localization** APIs (issue [#53](https://github.com/alefragnani/vscode-pascal-formatter/issues/53))
+- Update badges in README (issue [#57](https://github.com/alefragnani/vscode-pascal-formatter/issues/57))
+
 ## [2.7.0] - 2022-10-07
 ### Internal
-- * Improve extension startup (issue [#43](https://github.com/alefragnani/vscode-pascal-formatter/issues/43))
-- * Cleanup extension (issue [#44](https://github.com/alefragnani/vscode-pascal-formatter/issues/44))
+- Improve extension startup (issue [#43](https://github.com/alefragnani/vscode-pascal-formatter/issues/43))
+- Cleanup extension (issue [#44](https://github.com/alefragnani/vscode-pascal-formatter/issues/44))
 - Security Alert: terser (dependabot [PR #42](https://github.com/alefragnani/vscode-pascal-formatter/pull/42))
 
 ## [2.6.1] - 2022-06-17
 ### Internal
-* Add GitHub Sponsors support (PR [#41](https://github.com/alefragnani/vscode-pascal-formatter/pull/41))
+- Add GitHub Sponsors support (PR [#41](https://github.com/alefragnani/vscode-pascal-formatter/pull/41))
 
 ## [2.6.0] - 2021-12-10
 ### Internal
-* Add CONTRIBUTING documentation (issue [#33](https://github.com/alefragnani/vscode-pascal-formatter/issues/33))
-* Update dependencies (issue [#35](https://github.com/alefragnani/vscode-pascal-formatter/issues/35))
+- Add CONTRIBUTING documentation (issue [#33](https://github.com/alefragnani/vscode-pascal-formatter/issues/33))
+- Update dependencies (issue [#35](https://github.com/alefragnani/vscode-pascal-formatter/issues/35))
 - Do not show welcome message if installed by Settings Sync (issue [#34](https://github.com/alefragnani/vscode-pascal-formatter/issues/34))
 
 ## [2.5.0] - 2021-06-01

@@ -2,7 +2,7 @@
     "name": "pascal-formatter",
     "displayName": "Pascal Formatter",
     "description": "Source code formatter for Pascal",
-    "version": "2.7.0",
+    "version": "2.8.0",
     "publisher": "alefragnani",
     "galleryBanner": {
         "color": "#4682B4",
