@@ -24,6 +24,50 @@ export class PascalFormatterContentProvider implements ContentProvider {
     provideChangeLog(): ChangeLogItem[] {
         const changeLog: ChangeLogItem[] = [];
 
+        changeLog.push({ kind: ChangeLogKind.VERSION, detail: { releaseNumber: "2.9.0", releaseDate: "March 2024" } });
+        changeLog.push({
+            kind: ChangeLogKind.NEW,
+            detail: {
+                message: "Published to Open VSX",
+                id: 36,
+                kind: IssueKind.Issue
+            }
+        });
+        changeLog.push({
+            kind: ChangeLogKind.CHANGED,
+            detail: {
+                message: "Avoid What's New when using Gitpod",
+                id: 60,
+                kind: IssueKind.Issue
+            }
+        });
+        changeLog.push({
+            kind: ChangeLogKind.CHANGED,
+            detail: {
+                message: "Avoid What's New when installing lower versions",
+                id: 60,
+                kind: IssueKind.Issue
+            }
+        });
+        changeLog.push({
+            kind: ChangeLogKind.INTERNAL,
+            detail: {
+                message: "Security Alert: word-wrap",
+                id: 62,
+                kind: IssueKind.PR,
+                kudos: "dependabot"
+            }
+        });
+        changeLog.push({
+            kind: ChangeLogKind.INTERNAL,
+            detail: {
+                message: "Security Alert: webpack",
+                id: 59,
+                kind: IssueKind.PR,
+                kudos: "dependabot"
+            }
+        });
+        
         changeLog.push({ kind: ChangeLogKind.VERSION, detail: { releaseNumber: "2.8.0", releaseDate: "January 2023" } });
         changeLog.push({
             kind: ChangeLogKind.NEW,
@@ -82,32 +126,6 @@ export class PascalFormatterContentProvider implements ContentProvider {
         changeLog.push({
             kind: ChangeLogKind.INTERNAL,
             detail: "Add <b>GitHub Sponsors</b> support"
-        });
-
-        changeLog.push({ kind: ChangeLogKind.VERSION, detail: { releaseNumber: "2.6.0", releaseDate: "November 2021" } });
-        changeLog.push({
-            kind: ChangeLogKind.INTERNAL,
-            detail: {
-                message: "Add CONTRIBUTING documentation",
-                id: 33,
-                kind: IssueKind.Issue
-            }
-        });
-        changeLog.push({
-            kind: ChangeLogKind.INTERNAL,
-            detail: {
-                message: "Update dependencies",
-                id: 35,
-                kind: IssueKind.Issue
-            }
-        });
-        changeLog.push({
-            kind: ChangeLogKind.INTERNAL,
-            detail: {
-                message: "Do not show welcome message if installed by Settings Sync",
-                id: 34,
-                kind: IssueKind.Issue
-            }
         });
 
         return changeLog;

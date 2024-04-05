@@ -1,3 +1,15 @@
+## [2.9.0] - 2024-04-04
+### Added
+- Published to Open VSX (issue [#36](https://github.com/alefragnani/vscode-pascal-formatter/issues/36))
+
+### Changed
+- Avoid What's New when using Gitpod (issue [#60](https://github.com/alefragnani/vscode-pascal-formatter/issues/60))
+- Avoid What's New when installing lower versions (issue [#60](https://github.com/alefragnani/vscode-pascal-formatter/issues/60))
+
+### Internal
+- Security Alert: word-wrap (dependabot [PR #62](https://github.com/alefragnani/vscode-pascal-formatter/pull/62))
+- Security Alert: webpack (dependabot [PR #59](https://github.com/alefragnani/vscode-pascal-formatter/pull/59))
+
 ## [2.8.0] - 2023-02-22
 ### Added
 - Quadroid JEDI Formatter Support (Thanks to @quadroid [PR #52](https://github.com/alefragnani/vscode-pascal-formatter/pull/52))
