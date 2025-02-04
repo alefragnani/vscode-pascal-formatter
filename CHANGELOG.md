@@ -1,3 +1,8 @@
+## [2.9.1] - 2025-02-03
+### Internal
+- Security Alert: webpack (dependabot [PR #68](https://github.com/alefragnani/vscode-pascal-formatter/pull/68))
+- Security Alert: braces (dependabot [PR #66](https://github.com/alefragnani/vscode-pascal-formatter/pull/66))
+
 ## [2.9.0] - 2024-04-04
 ### Added
 - Published to Open VSX (issue [#36](https://github.com/alefragnani/vscode-pascal-formatter/issues/36))
