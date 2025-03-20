@@ -56,6 +56,10 @@ export class Formatter {
             let readFile: string;
             let configFileParameters = '';
 
+            const workspaceFolder = vscode.workspace.getWorkspaceFolder(this._document.uri);
+            const backupFolder = vscode.workspace.workspaceFolders?.[0];
+            const cwd = workspaceFolder?.uri?.fsPath || backupFolder?.uri.fsPath;
+
             fs.writeFileSync(tempFile, textToFormat);
 
             if (textToFormat) {
@@ -109,7 +113,7 @@ export class Formatter {
                     }
 
                     console.log(command);
-                    cp.exec(command, function(error, stdout, stderr) {
+                    cp.exec(command, { cwd }, function(error, stdout, stderr) {
                         console.log('stdout' + stdout);
                         console.log('error' + error);
                         console.log('stderr' + stderr);
