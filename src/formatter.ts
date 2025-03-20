@@ -88,6 +88,12 @@ export class Formatter {
                         command = command.replace('$file', tempFile);
                         command = command.replace('$outfile', tempFileOut);
                         readFile = tempFileOut
+                    } else if (engine === 'pasfmt') {
+                        command = `"${path}" "${tempFile}" -C encoding=utf-8`
+                        if (parameters !== '') {
+                            command += " " + parameters
+                        }
+                        readFile = tempFile
                     } else { // jcf
                         if (parameters !== '') {
                             configFileParameters = ' -config=' + parameters;

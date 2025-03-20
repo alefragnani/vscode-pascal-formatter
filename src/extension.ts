@@ -196,7 +196,10 @@ export async function activate(context: vscode.ExtensionContext) {
                 const optionPTOP = <vscode.MessageItem>{
                     title: "FreePascal PtoP"
                 };
-                vscode.window.showErrorMessage(l10n.t('The "pascal.formatter.engine" setting is not defined. Do you want to download some formatter tool first?'), optionJCF, optionJCFQ, optionPTOP).then(option => {
+                const optionPasfmt = <vscode.MessageItem>{
+                    title: "pasfmt"
+                };
+                vscode.window.showErrorMessage(l10n.t('The "pascal.formatter.engine" setting is not defined. Do you want to download some formatter tool first?'), optionJCF, optionJCFQ, optionPTOP, optionPasfmt).then(option => {
                     // nothing selected
                     if (typeof option === 'undefined') {
                         reject('undefined');
@@ -214,6 +217,10 @@ export async function activate(context: vscode.ExtensionContext) {
 
                         case optionPTOP.title:
                             vscode.env.openExternal(vscode.Uri.parse("https://www.freepascal.org/tools/ptop.html"));
+                            break;
+
+                        case optionPasfmt.title:
+                            vscode.env.openExternal(vscode.Uri.parse("https://github.com/integrated-application-development/pasfmt/releases/latest"));
                             break;
 
                         default:
@@ -258,7 +265,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
         if (engine === 'ptop') {
             return true;
-        } else { // jcf and embarcadero formatter
+        } else { // for any other formatter, allow the range if it's the full document
             return (range.start.character === 0) &&
                 (range.start.line === 0) &&
                 (range.end.line === document.lineCount - 1) &&
