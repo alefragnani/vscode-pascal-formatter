@@ -37,13 +37,13 @@
 
 # Pascal Formatter
 
-It adds **Code Formatters** for **Pascal** language and its dialects like **Delphi** and **FreePascal**. 
+It adds **Code Formatters** for **Pascal** language and its dialects like **Delphi** and **FreePascal**.
 
 > This extension was originally extracted from my [Pascal](https://github.com/alefragnani/vscode-language-pascal) extension
 
 # Features
 
-Standardise your **Pascal** code! 
+Standardise your **Pascal** code!
 
 It uses external tools _(engines)_ to format the code, so you must install them prior to use the `Format Document` and `Format Selection` commands.
 
@@ -51,8 +51,9 @@ It uses external tools _(engines)_ to format the code, so you must install them 
 * **Jedi Code Format:** http://jedicodeformat.sourceforge.net/ (Windows only)
 * **Jedi Code Format (Quadroid):** https://github.com/quadroid/jcf-pascal-format (Windows, Linux and Mac OS X)
 * **Embarcadero Formatter:** http://docwiki.embarcadero.com/RADStudio/Sydney/en/Formatter.EXE,_the_Command_Line_Formatter (Windows only)
+* **pasfmt:** https://github.com/integrated-application-development/pasfmt/
 
-> If you intend to format _pieces of selected texts_ instead of _the entire file_, you should use **FreePascal PToP**, because the **Jedi Code Format** and **Embarcadero Formatter** only works for entire files. 
+> If you intend to format _pieces of selected texts_ instead of _the entire file_, you should use **FreePascal PToP**, because the **Jedi Code Format** and **Embarcadero Formatter** only works for entire files.
 
 ## Available settings
 
@@ -62,6 +63,7 @@ You can choose which formatter engine to use _(required)_:
 * `jcf`: Jedi Code Formatter
 * `jcf-quadroid`: Jedi Code Formatter (Quadroid)
 * `embarcadero`: Embarcadero Formatter
+* `pasfmt`: pasfmt
 
 ```json
     "pascal.formatter.engine": "ptop"
@@ -69,7 +71,7 @@ You can choose which formatter engine to use _(required)_:
 
 * Indicates the engine app path _(required)_
 ```json
-    "pascal.formatter.enginePath": "C:\\FPC\\2.6.4\\bin\\i386-win32\\ptop.exe" 
+    "pascal.formatter.enginePath": "C:\\FPC\\2.6.4\\bin\\i386-win32\\ptop.exe"
 ```
 
 * Indicates the configuration file for the selected engine _(optional)_
@@ -81,7 +83,7 @@ If you decide to use **FreePascal PToP**, you have two additional settings:
 
 * The number of spaces used for indentation
 ```json
-    "pascal.format.indent": 2 
+    "pascal.format.indent": 2
 ```
 
 * Maximum amount of characters per line

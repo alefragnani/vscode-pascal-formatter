@@ -79,7 +79,8 @@
                         "embarcadero",
                         "jcf",
                         "jcf-quadroid",
-                        "ptop"
+                        "ptop",
+                        "pasfmt"
                     ]
                 },
                 "pascal.formatter.enginePath": {

@@ -56,6 +56,10 @@ export class Formatter {
             let readFile: string;
             let configFileParameters = '';
 
+            const workspaceFolder = vscode.workspace.getWorkspaceFolder(this._document.uri);
+            const backupFolder = vscode.workspace.workspaceFolders?.[0];
+            const cwd = workspaceFolder?.uri?.fsPath || backupFolder?.uri.fsPath;
+
             fs.writeFileSync(tempFile, textToFormat);
 
             if (textToFormat) {
@@ -88,6 +92,12 @@ export class Formatter {
                         command = command.replace('$file', tempFile);
                         command = command.replace('$outfile', tempFileOut);
                         readFile = tempFileOut
+                    } else if (engine === 'pasfmt') {
+                        command = `"${path}" "${tempFile}" -C encoding=utf-8`
+                        if (parameters !== '') {
+                            command += " " + parameters
+                        }
+                        readFile = tempFile
                     } else { // jcf
                         if (parameters !== '') {
                             configFileParameters = ' -config=' + parameters;
@@ -103,7 +113,7 @@ export class Formatter {
                     }
 
                     console.log(command);
-                    cp.exec(command, function(error, stdout, stderr) {
+                    cp.exec(command, { cwd }, function(error, stdout, stderr) {
                         console.log('stdout' + stdout);
                         console.log('error' + error);
                         console.log('stderr' + stderr);
