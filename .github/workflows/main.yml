@@ -23,7 +23,7 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 20.x
+        node-version-file: .nvmrc
     - run: npm install
     - run: xvfb-run -a npm test
       if: runner.os == 'Linux'
