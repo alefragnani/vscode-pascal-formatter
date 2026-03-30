@@ -1,33 +1,61 @@
 # Pascal Formatter VS Code Extension
 
-Pascal Formatter is a Visual Studio Code extension that provides source code formatting for Pascal/Object Pascal files. The extension integrates with external formatting tools (engines) like FreePascal PToP, Jedi Code Format, Embarcadero Formatter, and pasfmt to format Pascal code.
+Always reference these instructions first and fall back to additional search or terminal commands only when project files do not provide enough context.
 
-Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
+## Project Overview
+
+Pascal Formatter is a Visual Studio Code extension that provides source code formatting for Pascal/Object Pascal files. The extension integrates with external formatting tools (engines) like FreePascal PToP, Jedi Code Format, Embarcadero Formatter, and pasfmt.
+
+## Technology Stack
+
+- Language: TypeScript
+- Runtime: VS Code Extension API (Node + Web)
+- Bundler: Webpack 5
+- Linting: ESLint (`eslint-config-vscode-ext`)
+- Testing: Mocha + `@vscode/test-electron`
 
 ## Working Effectively
 
-Bootstrap, build, and test the repository:
-- `git submodule init && git submodule update` -- initializes the vscode-whats-new submodule (takes ~5 seconds)
-- `npm install` -- installs dependencies (takes ~15 seconds)
-- `npm run build` -- webpack build in development mode (takes ~3 seconds). NEVER CANCEL.
-- `npm run compile` -- TypeScript compilation (takes ~3 seconds). NEVER CANCEL.
-- `npm run lint` -- ESLint validation (takes ~5 seconds). NEVER CANCEL.
-- `npm run test-compile` -- TypeScript compilation + webpack build (takes ~5 seconds). NEVER CANCEL.
-- `npm run vscode:prepublish` -- production webpack build (takes ~3 seconds). NEVER CANCEL.
-- `npm run test` -- full test suite including compile + lint + test execution (may fail due to network connectivity requiring VS Code download). NEVER CANCEL. Set timeout to 10+ minutes.
+Bootstrap and local setup:
 
-Run the extension in development:
-- ALWAYS run the bootstrapping steps first.
-- Use VS Code's "Launch Extension" debug configuration (F5) to test the extension
-- Or build with `npm run watch` for automatic rebuilds during development
-- The extension requires external Pascal formatting tools to be installed for full functionality
+```bash
+git submodule init
+git submodule update
+npm install
+```
 
-## Validation
+Build and development quickstart:
 
-- ALWAYS manually validate any changes by testing the extension functionality in VS Code
-- The extension provides Format Document and Format Selection commands for Pascal files
-- Create a sample Pascal file with intentionally poor formatting to test the formatting functionality
-- Test sample (.pas file):
+```bash
+npm run build
+npm run lint
+```
+
+- Use `npm run watch` during active development.
+- Use VS Code "Launch Extension" (F5) to validate behavior in Extension Development Host.
+- Expected command timings are usually under 10 seconds.
+- Never cancel `npm install`, `npm run watch`, or `npm test` once started.
+## Build and Development Commands
+
+- `npm run compile` - TypeScript compilation
+- `npm run build` - Webpack development build
+- `npm run watch` - Continuous webpack build
+- `npm run lint` - ESLint validation
+- `npm run test` - Full test suite
+- `npm run vscode:prepublish` - Production build
+
+## Testing and Validation
+
+Manual validation checklist:
+
+1. Run `npm run build`.
+2. Launch Extension Development Host (F5).
+3. Open a `.pas` file and run Format Document / Format Selection.
+4. Confirm output is produced by the selected formatter engine.
+5. Run `npm run lint` before commit.
+
+Sample misformatted file for testing:
+
 ```pascal
 program TestProgram;
 var
@@ -46,100 +74,104 @@ if i mod 2 = 0 then
   end;
 end.
 ```
-- ALWAYS run `npm run lint` before committing as the CI (.github/workflows/main.yml) will fail on linting errors
-- CI runs on Windows, Linux, and macOS using Node.js 16.x - ensure cross-platform compatibility
-- Tests may fail in headless environments due to VS Code download requirements (xvfb-run used on Linux)
 
-## External Dependencies
+## Project Structure and Key Files
 
-The extension requires external Pascal formatting tools to function:
-- **FreePascal PToP**: Cross-platform, supports range formatting
-- **Jedi Code Format**: Windows only, full file formatting
-- **Jedi Code Format (Quadroid)**: Cross-platform
-- **Embarcadero Formatter**: Windows only, full file formatting  
-- **pasfmt**: Cross-platform
-
-Configure via VS Code settings:
-```json
-{
-    "pascal.formatter.engine": "ptop",
-    "pascal.formatter.enginePath": "/usr/bin/ptop",
-    "pascal.formatter.engineParameters": ""
-}
 ```
+src/
+├── extension.ts          # Extension activation and formatter registration
+├── formatter.ts          # Core formatting logic
+├── container.ts          # Dependency container/context
+└── test/                 # Test suite
+
+dist/                     # Webpack bundles (extension.js)
+l10n/                     # Localization files
+out/                      # Compiled TypeScript files
+vscode-whats-new/         # Submodule dependency
+```
+
+## Coding Conventions and Patterns
+
+### Indentation
+
+- We spaces, not tabs.
+- Use 4 spaces for indentation.
+
+### Naming Conventions
+
+- Use PascalCase for `type` names
+- Use PascalCase for `enum` values
+- Use camelCase for `function` and `method` names
+- Use camelCase for `property` names and `local variables`
+- Use whole words in names when possible
+
+### Types
+
+- Do not export `types` or `functions` unless you need to share it across multiple components
+- Do not introduce new `types` or `values` to the global namespace
+- Prefer `const` over `let` when possible.
+
+### Strings
+
+- Use "double quotes"
+- All strings visible to the user need to be externalized using the `l10n` API
+- Externalized strings must not use string concatenation. Use placeholders instead (`{0}`).
+
+### Code Quality
+
+- All files must include copyright header
+- Prefer `async` and `await` over `Promise` and `then` calls
+- All user facing messages must be localized using the applicable localization framework (for example `l10n.t` method)
+- Keep imports organized: VS Code first, then internal modules.
+- Use semicolons at the end of statements.
+- Keep formatter-engine behavior platform-aware.
+- Keep changes minimal and aligned with existing style.
+
+### Import Organization
+
+- Import VS Code API first: `import * as vscode from "vscode"`
+- Group related imports together
+- Use named imports for specific VS Code types
+- Import from local modules using relative paths
+
+## Extension Features and Configuration
+
+### Key Features
+1. **Formatter Integration**: Integrates with multiple external formatting engines to provide code formatting for Pascal files.
+2. **Remote Development**: Support for remote development scenarios
+3. **Internationalization support**: Localization of all user-facing strings
+
+### Important Settings
+- `pascal.formatter.engine`
+- `pascal.formatter.enginePath`
+- `pascal.formatter.engineParameters`
+
+## Dependencies and External Tools
+
+- Requires `vscode-whats-new` submodule initialization.
+- External engines required for actual formatting execution:
+  - FreePascal PToP
+  - Jedi Code Format / Jedi Code Format (Quadroid)
+  - Embarcadero Formatter
+  - pasfmt
+
+## Troubleshooting and Known Limitations
+
+- Tests may fail in headless/network-restricted environments due to VS Code download requirements.
+- Engine-specific failures usually indicate missing executables or incorrect `enginePath`.
+- If build validation fails after dependency updates, clean `out/` and `dist/` and rebuild.
+
+## CI and Pre-Commit Validation
+
+Before committing:
+
+1. `npm run lint`
+2. `npm run build`
+3. `npm run test-compile`
+4. Manual formatter validation in Extension Host
 
 ## Common Tasks
 
-The following are outputs from frequently run commands. Reference them instead of viewing, searching, or running bash commands to save time.
-
-### Repository structure
-```
-├── .github/              # GitHub workflows and issue templates
-├── .vscode/              # VS Code configuration (launch, tasks, settings)
-├── dist/                 # Webpack output directory
-├── images/               # Extension icon and assets
-├── l10n/                 # Localization files
-├── out/                  # TypeScript compilation output
-├── src/                  # TypeScript source code
-│   ├── extension.ts      # Main extension entry point
-│   ├── formatter.ts      # Core formatting logic
-│   ├── container.ts      # Dependency injection container
-│   ├── test/             # Test files
-│   └── whats-new/        # What's New feature
-├── vscode-whats-new/     # Git submodule for What's New functionality
-├── package.json          # Extension manifest and dependencies
-├── tsconfig.json         # TypeScript configuration
-└── webpack.config.js     # Webpack build configuration
-```
-
-### Package.json scripts
-```json
-{
-    "build": "webpack --mode development",          // ~3 seconds
-    "watch": "webpack --watch --mode development",  // continuous background process
-    "compile": "tsc -p ./",                         // ~3 seconds  
-    "lint": "eslint -c package.json --ext .ts src vscode-whats-new", // ~5 seconds
-    "test": "npm run test-compile && npm run just-test",              // up to 10 minutes
-    "test-compile": "tsc -p ./ && npm run webpack",                  // ~5 seconds
-    "pretest": "npm run compile && npm run lint",                    // ~8 seconds
-    "vscode:prepublish": "webpack --mode production"                 // ~3 seconds
-}
-```
-
-### Key source files
-- `src/extension.ts` - Extension activation, command registration, and formatter integration
-- `src/formatter.ts` - Core formatting logic that interfaces with external tools
-- `src/container.ts` - Dependency injection and context management
-- `src/whats-new/` - What's New feature implementation
-
-### Supported engines (from package.json)
-- `embarcadero` - Embarcadero Formatter (Windows only)
-- `jcf` - Jedi Code Format (Windows only)
-- `jcf-quadroid` - Quadroid JEDI Code Format (cross-platform)
-- `ptop` - FreePascal PToP (cross-platform, supports range formatting)
-- `pasfmt` - pasfmt formatter (cross-platform)
-
-### Development workflow
-1. Make changes to TypeScript source files in `src/`
-2. Run `npm run build` or `npm run watch` for automatic rebuilds  
-3. Press F5 in VS Code to launch extension host for testing (uses .vscode/launch.json "Launch Extension" configuration)
-4. Create a Pascal file (.pas) with poor formatting and test Format Document/Format Selection commands
-5. Run `npm run lint` to check for code quality issues before committing
-6. For full validation run `npm run test-compile` to ensure both TypeScript and webpack build successfully
-7. Run full test suite with `npm test` (may require network connectivity and can take up to 10 minutes)
-
-### Building without VS Code
-The extension can be built and validated without VS Code using:
-- `npm run build` for development build
-- `npm run vscode:prepublish` for production build (creates minified 47KB vs 136KB output)
-- `npm run lint` for code quality validation
-- All build steps are very fast (under 5 seconds each) and should NEVER be cancelled
-
-### Testing the extension
-Since this is a VS Code extension, testing requires:
-1. Building the extension with `npm run build`
-2. Using VS Code's Extension Host (F5) to test functionality
-3. Creating a sample Pascal file and testing format commands
-4. Verifying integration with external formatting tools (if available)
-
-Note: Full test suite requires VS Code test framework and may fail in headless environments due to network connectivity requirements.
+1. Update formatter engine handling in `src/formatter.ts`.
+2. Adjust command/activation integration in `src/extension.ts`.
+3. Validate behavior with at least one configured engine and one `.pas` sample file.
