@@ -67,6 +67,76 @@
                 "category": "Pascal Formatter"
             }
         ],
+        "walkthroughs": [
+            {
+                "id": "pascalFormatterWelcome",
+                "title": "%pascal.formatter.walkthroughs.title%",
+                "description": "%pascal.formatter.walkthroughs.description%",
+                "steps": [
+                    {
+                        "id": "chooseEngine",
+                        "title": "%pascal.formatter.walkthroughs.chooseEngine.title%",
+                        "description": "%pascal.formatter.walkthroughs.chooseEngine.description%",
+                        "media": {
+                            "markdown": "walkthrough/chooseEngine.md"
+                        }
+                    },
+                    {
+                        "id": "jcf",
+                        "title": "%pascal.formatter.walkthroughs.jcf.title%",
+                        "description": "%pascal.formatter.walkthroughs.jcf.description%",
+                        "media": {
+                            "markdown": "walkthrough/jcf.md"
+                        },
+                        "when": "!isWeb"
+                    },
+                    {
+                        "id": "jcfQuadroid",
+                        "title": "%pascal.formatter.walkthroughs.jcfQuadroid.title%",
+                        "description": "%pascal.formatter.walkthroughs.jcfQuadroid.description%",
+                        "media": {
+                            "markdown": "walkthrough/jcfQuadroid.md"
+                        },
+                        "when": "!isWeb"
+                    },
+                    {
+                        "id": "ptop",
+                        "title": "%pascal.formatter.walkthroughs.ptop.title%",
+                        "description": "%pascal.formatter.walkthroughs.ptop.description%",
+                        "media": {
+                            "markdown": "walkthrough/ptop.md"
+                        },
+                        "when": "!isWeb"
+                    },
+                    {
+                        "id": "embarcadero",
+                        "title": "%pascal.formatter.walkthroughs.embarcadero.title%",
+                        "description": "%pascal.formatter.walkthroughs.embarcadero.description%",
+                        "media": {
+                            "markdown": "walkthrough/embarcadero.md"
+                        },
+                        "when": "!isWeb"
+                    },
+                    {
+                        "id": "pasfmt",
+                        "title": "%pascal.formatter.walkthroughs.pasfmt.title%",
+                        "description": "%pascal.formatter.walkthroughs.pasfmt.description%",
+                        "media": {
+                            "markdown": "walkthrough/pasfmt.md"
+                        },
+                        "when": "!isWeb"
+                    },
+                    {
+                        "id": "formatDocument",
+                        "title": "%pascal.formatter.walkthroughs.formatDocument.title%",
+                        "description": "%pascal.formatter.walkthroughs.formatDocument.description%",
+                        "media": {
+                            "markdown": "walkthrough/formatDocument.md"
+                        }
+                    }
+                ]
+            }
+        ],
         "configuration": {
             "type": "object",
             "title": "%pascal.formatter.configuration.title%",
