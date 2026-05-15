@@ -6,5 +6,21 @@
     "pascal.formatter.configuration.enginePath.description": "Indica o caminho do aplicativo Formatador",
     "pascal.formatter.configuration.engineParameters.description": "Indica o arquivo de configuração para o formatador selecionado",
     "pascal.formatter.configuration.indent.description": "O número de espaços em branco a serem usados na indentação",
-    "pascal.formatter.configuration.wrapLineLength.description": "Número máximo de caracteres por linha"
+    "pascal.formatter.configuration.wrapLineLength.description": "Número máximo de caracteres por linha",
+    "pascal.formatter.walkthroughs.title": "Primeiros passos com o Pascal Formatter",
+    "pascal.formatter.walkthroughs.description": "Configure uma ferramenta de formatação Pascal e comece a formatar seu código em minutos!",
+    "pascal.formatter.walkthroughs.chooseEngine.title": "Escolha uma Ferramenta de Formatação",
+    "pascal.formatter.walkthroughs.chooseEngine.description": "O Pascal Formatter suporta cinco ferramentas de formatação. Escolha a que melhor se adapta à sua plataforma e fluxo de trabalho.",
+    "pascal.formatter.walkthroughs.jcf.title": "Configurar Jedi Code Format",
+    "pascal.formatter.walkthroughs.jcf.description": "Baixe, instale e configure o **Jedi Code Format** (somente Windows)\n[Abrir Configurações](command:workbench.action.openSettings?%5B%22pascal.formatter%22%5D)",
+    "pascal.formatter.walkthroughs.jcfQuadroid.title": "Configurar JCF (Quadroid)",
+    "pascal.formatter.walkthroughs.jcfQuadroid.description": "Baixe, instale e configure o **Jedi Code Format (Quadroid)** (Windows, Linux, macOS)\n[Abrir Configurações](command:workbench.action.openSettings?%5B%22pascal.formatter%22%5D)",
+    "pascal.formatter.walkthroughs.ptop.title": "Configurar FreePascal PToP",
+    "pascal.formatter.walkthroughs.ptop.description": "Baixe, instale e configure o **FreePascal PToP** (Windows, Linux, macOS)\n[Abrir Configurações](command:workbench.action.openSettings?%5B%22pascal.formatter%22%5D)",
+    "pascal.formatter.walkthroughs.embarcadero.title": "Configurar Embarcadero Formatter",
+    "pascal.formatter.walkthroughs.embarcadero.description": "Baixe, instale e configure o **Embarcadero Formatter** (somente Windows)\n[Abrir Configurações](command:workbench.action.openSettings?%5B%22pascal.formatter%22%5D)",
+    "pascal.formatter.walkthroughs.pasfmt.title": "Configurar pasfmt",
+    "pascal.formatter.walkthroughs.pasfmt.description": "Baixe, instale e configure o **pasfmt** (Windows, Linux, macOS)\n[Abrir Configurações](command:workbench.action.openSettings?%5B%22pascal.formatter%22%5D)",
+    "pascal.formatter.walkthroughs.formatDocument.title": "Formate seu código Pascal",
+    "pascal.formatter.walkthroughs.formatDocument.description": "Tudo pronto! Formate qualquer arquivo Pascal usando **Formatar Documento** ou **Formatar Seleção**."
 }
