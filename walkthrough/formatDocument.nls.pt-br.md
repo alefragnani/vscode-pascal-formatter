@@ -19,4 +19,4 @@ Selecione uma parte do código e então:
 * **Clique com o botão direito** na seleção → **Formatar Seleção**
 * Paleta de Comandos: **Format Selection**
 
-> **Nota:** Apenas o **FreePascal PToP** suporta formatação de seleção. As demais ferramentas formatam o documento completo mesmo quando há uma seleção.
+> **Nota:** Apenas o **FreePascal PToP** suporta formatação de seleção. Com **JCF**, **Embarcadero** e **pasfmt**, use **Formatar Documento** para formatar o arquivo inteiro.

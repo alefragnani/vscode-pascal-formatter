@@ -19,4 +19,4 @@ Select a portion of code, then:
 * **Right-click** the selection → **Format Selection**
 * Command Palette: **Format Selection**
 
-> **Note:** Only **FreePascal PToP** supports selection formatting. Other engines will format the full document even when a selection is made.
+> **Note:** Only **FreePascal PToP** supports formatting a selected range. Other engines do not support selection formatting, so they will not fall back to formatting the full document when a selection is made.
