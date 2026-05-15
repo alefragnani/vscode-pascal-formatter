@@ -12,10 +12,14 @@ Download the binary for your platform and note its location.
 
 ### Step 2 — Configure the Extension
 
-Open Settings and configure the following:
+Add the following to your settings:
 
-* `pascal.formatter.engine` → `pasfmt`
-* `pascal.formatter.enginePath` → full path to the `pasfmt` executable
+```json
+{
+    "pascal.formatter.engine": "pasfmt",
+    "pascal.formatter.enginePath": "C:\\tools\\pasfmt.exe"
+}
+```
 
 <table align="center" width="85%" border="0">
   <tr>

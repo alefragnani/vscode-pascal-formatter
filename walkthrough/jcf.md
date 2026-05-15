@@ -12,11 +12,15 @@ Extract the archive and note the location of `JCF.exe`.
 
 ### Step 2 — Configure the Extension
 
-Open Settings and configure the following:
+Add the following to your settings:
 
-* `pascal.formatter.engine` → `jcf`
-* `pascal.formatter.enginePath` → full path to `JCF.exe`
-* `pascal.formatter.engineParameters` → path to your `JCFSettings.cfg` file _(optional — the extension can generate a default one)_
+```json
+{
+    "pascal.formatter.engine": "jcf",
+    "pascal.formatter.enginePath": "C:\\JCF\\JCF.exe",
+    "pascal.formatter.engineParameters": "C:\\JCF\\JCFSettings.cfg" // optional — the extension can generate a default one
+}
+```
 
 <table align="center" width="85%" border="0">
   <tr>

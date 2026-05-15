@@ -12,10 +12,14 @@ Extraia o arquivo e anote o caminho do executável `jcf`.
 
 ### Passo 2 — Configurar a Extensão
 
-Abra as Configurações e defina os seguintes valores:
+Adicione as seguintes configurações:
 
-* `pascal.formatter.engine` → `jcf-quadroid`
-* `pascal.formatter.enginePath` → caminho completo para o executável `jcf`
+```json
+{
+    "pascal.formatter.engine": "jcf-quadroid",
+    "pascal.formatter.enginePath": "C:\\tools\\jcf\\jcf.exe"
+}
+```
 
 <table align="center" width="85%" border="0">
   <tr>

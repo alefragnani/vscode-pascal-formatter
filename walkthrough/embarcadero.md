@@ -14,11 +14,15 @@ Locate `Formatter.exe` in your Delphi or RAD Studio installation directory.
 
 ### Step 2 — Configure the Extension
 
-Open Settings and configure the following:
+Add the following to your settings:
 
-* `pascal.formatter.engine` → `embarcadero`
-* `pascal.formatter.enginePath` → full path to `Formatter.exe`
-* `pascal.formatter.engineParameters` → path to your formatter configuration file _(required)_
+```json
+{
+    "pascal.formatter.engine": "embarcadero",
+    "pascal.formatter.enginePath": "C:\\Program Files (x86)\\Embarcadero\\Studio\\22.0\\bin\\Formatter.exe",
+    "pascal.formatter.engineParameters": "C:\\path\\to\\formatter.config" // required
+}
+```
 
 <table align="center" width="85%" border="0">
   <tr>

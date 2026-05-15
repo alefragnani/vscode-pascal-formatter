@@ -12,11 +12,15 @@ Extraia o arquivo e anote o caminho de `JCF.exe`.
 
 ### Passo 2 — Configurar a Extensão
 
-Abra as Configurações e defina os seguintes valores:
+Adicione as seguintes configurações:
 
-* `pascal.formatter.engine` → `jcf`
-* `pascal.formatter.enginePath` → caminho completo para `JCF.exe`
-* `pascal.formatter.engineParameters` → caminho para o arquivo `JCFSettings.cfg` _(opcional — a extensão pode gerar um padrão)_
+```json
+{
+    "pascal.formatter.engine": "jcf",
+    "pascal.formatter.enginePath": "C:\\JCF\\JCF.exe",
+    "pascal.formatter.engineParameters": "C:\\JCF\\JCFSettings.cfg" // opcional — a extensão pode gerar um padrão
+}
+```
 
 <table align="center" width="85%" border="0">
   <tr>

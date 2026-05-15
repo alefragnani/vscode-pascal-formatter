@@ -12,10 +12,14 @@ Extract the archive and note the location of the `jcf` executable.
 
 ### Step 2 — Configure the Extension
 
-Open Settings and configure the following:
+Add the following to your settings:
 
-* `pascal.formatter.engine` → `jcf-quadroid`
-* `pascal.formatter.enginePath` → full path to the `jcf` executable
+```json
+{
+    "pascal.formatter.engine": "jcf-quadroid",
+    "pascal.formatter.enginePath": "C:\\tools\\jcf\\jcf.exe"
+}
+```
 
 <table align="center" width="85%" border="0">
   <tr>

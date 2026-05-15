@@ -12,11 +12,15 @@ O PToP está incluído na distribuição do FreePascal. Anote o caminho de `ptop
 
 ### Passo 2 — Configurar a Extensão
 
-Abra as Configurações e defina os seguintes valores:
+Adicione as seguintes configurações:
 
-* `pascal.formatter.engine` → `ptop`
-* `pascal.formatter.enginePath` → caminho completo para `ptop` / `ptop.exe`
-* `pascal.formatter.engineParameters` → caminho para um arquivo `.cfg` de configuração _(opcional — a extensão pode gerar um padrão)_
+```json
+{
+    "pascal.formatter.engine": "ptop",
+    "pascal.formatter.enginePath": "C:\\FPC\\2.6.4\\bin\\i386-win32\\ptop.exe",
+    "pascal.formatter.engineParameters": "C:\\FPC\\2.6.4\\bin\\i386-win32\\default.cfg" // opcional — a extensão pode gerar um padrão
+}
+```
 
 <table align="center" width="85%" border="0">
   <tr>
