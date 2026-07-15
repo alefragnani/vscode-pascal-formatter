@@ -1,6 +1,6 @@
 ## Format Your Pascal Code
 
-![Pascal Formatter](./vscode-pascal-format-code.gif)
+![Pascal Formatter](../docs/images/vscode-pascal-format-code.gif)
 
 With your engine configured, you can now format Pascal files directly in VS Code.
 

@@ -95,7 +95,7 @@ If you decide to use **FreePascal PToP**, you have two additional settings:
 
 The extension seamlessly integrates with the `Format Document` and `Format Selection` commands **Visual Studio Code**.
 
-![format-code](images/vscode-pascal-format-code.gif)
+![format-code](docs/images/vscode-pascal-format-code.gif)
 
 There is also:
 

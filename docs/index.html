@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pascal Formatter for Visual Studio Code integrates with external formatting engines like FreePascal PToP, Jedi Code Format, Embarcadero Formatter, and pasfmt to standardize your Pascal and Delphi code.">
+    <title>Pascal Formatter for VS Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <a class="brand" href="#top" aria-label="Pascal Formatter home">
+                <img src="images/icon.png" alt="Pascal Formatter icon" class="brand-mark">
+                <span class="brand-copy">
+                    <strong>Pascal Formatter</strong>
+                    <!-- <span>for VS Code</span> -->
+                </span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="top-nav" aria-label="Open menu" title="Open menu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+            <nav id="top-nav" class="top-nav" aria-label="Primary navigation">
+                <a href="#features">Features</a>
+                <a href="#faq">FAQ</a>
+                <a href="#donate"><i class="fa-solid fa-heart" aria-hidden="true"></i> Donate</a>
+            </nav>
+            <div class="header-actions">
+                <a href="https://github.com/alefragnani/vscode-pascal-formatter" aria-label="GitHub" title="GitHub">
+                    <i class="fa-brands fa-github" aria-hidden="true" style="font-size: 24px;"></i>
+                </a>
+            </div>
+        </header>
+
+        <main id="top">
+            <section class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">Visual Studio Code Extension</p>
+                    <h1>Standardise your Pascal code.</h1>
+                    <p class="hero-text">
+                        Pascal Formatter adds Code Formatting for Pascal and its dialects like Delphi and
+                        FreePascal, wiring up the Format Document and Format Selection commands to the
+                        external engine you already use.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal-formatter">Get it on Marketplace</a>
+                        <a class="button button-muted" href="https://open-vsx.org/extension/alefragnani/pascal-formatter">Open VSX</a>
+                    </div>
+                    <ul class="hero-points" aria-label="Pascal Formatter highlights">
+                        <li>Integrates with FreePascal PToP, Jedi Code Format, Embarcadero Formatter, and pasfmt</li>
+                        <li>Works with Format Document and Format Selection commands</li>
+                        <li>Supports Virtual Workspaces and Workspace Trust</li>
+                    </ul>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card hero-card-shot">
+                        <img src="images/vscode-pascal-format-code.gif" alt="Pascal Formatter Format Document screenshot">
+                    </div>
+                </div>
+            </section>
+
+            <section class="announcement">
+                <p class="eyebrow">What&apos;s new in 2.9</p>
+                <div class="announcement-grid">
+                    <article>
+                        <h2>More engines, more workspaces</h2>
+                        <p>Pascal Formatter now publishes to Open VSX and adds support for additional formatting engines and workspace scenarios.</p>
+                    </article>
+                    <ul>
+                        <li>Published to Open VSX</li>
+                        <li>Adds Quadroid JEDI Formatter support</li>
+                        <li>Adds Virtual Workspaces support</li>
+                        <li>Adds Workspace Trust support</li>
+                        <li>Adds Embarcadero Formatter support</li>
+                        <li>Adds OmniPascal extension support</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="feature-index" id="features">
+                <div class="section-heading">
+                    <p class="eyebrow">Features</p>
+                    <h2>Jump to the key capabilities.</h2>
+                </div>
+                <div class="feature-grid">
+                    <a class="feature-card" href="#formatting-engines">
+                        <span class="feature-number">01</span>
+                        <h3>Multiple Formatting Engines</h3>
+                        <p>Choose from FreePascal PToP, Jedi Code Format, Jedi Code Format (Quadroid), Embarcadero Formatter, or pasfmt.</p>
+                    </a>
+                    <a class="feature-card" href="#configurable-settings">
+                        <span class="feature-number">02</span>
+                        <h3>Configurable Settings</h3>
+                        <p>Point the extension at your engine executable, config file, indentation, and line wrap length.</p>
+                    </a>
+                    <a class="feature-card" href="#commands">
+                        <span class="feature-number">03</span>
+                        <h3>Format Document &amp; Selection</h3>
+                        <p>Formats seamlessly integrate with the native VS Code formatting commands.</p>
+                    </a>
+                    <a class="feature-card" href="#remote-development-ready">
+                        <span class="feature-number">04</span>
+                        <h3>Remote Development Ready</h3>
+                        <p>Supports Virtual Workspaces and Workspace Trust for remote and restricted environments.</p>
+                    </a>
+                </div>
+            </section>
+
+            <section class="spotlight spotlight-reverse" id="formatting-engines">
+                <div class="spotlight-copy">
+                    <p class="eyebrow">Formatting engines</p>
+                    <h2>Bring your own engine, we wire it up.</h2>
+                    <p>
+                        Pascal Formatter doesn't format code on its own &mdash; it uses external tools
+                        (engines) that you install and configure once. Pick the one that fits your platform
+                        and workflow.
+                    </p>
+                    <div class="detail-list">
+                        <div>
+                            <h3>FreePascal PToP</h3>
+                            <p>Available on Windows, Linux and Mac OS X. Recommended if you need to format selected pieces of text, not just entire files.</p>
+                        </div>
+                        <div>
+                            <h3>Jedi Code Format &amp; Quadroid</h3>
+                            <p>The original Jedi Code Format is Windows only. The Quadroid fork adds Windows, Linux and Mac OS X support.</p>
+                        </div>
+                        <div>
+                            <h3>Embarcadero Formatter &amp; pasfmt</h3>
+                            <p>Embarcadero Formatter (Windows only) integrates with RAD Studio, while pasfmt is a modern, cross-platform alternative.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="spotlight-visual stack">
+                    <figure class="media-card">
+                        <img src="images/vscode-pascal-formatter-logo-readme.png" alt="Pascal Formatter logo">
+                    </figure>
+                </div>
+            </section>
+
+            <section class="spotlight" id="configurable-settings">
+                <div class="spotlight-copy">
+                    <p class="eyebrow">Configurable settings</p>
+                    <h2>Tell the extension which engine to use and where to find it.</h2>
+                    <p>
+                        Choose your engine, point to its executable, and optionally supply a configuration
+                        file. If you use FreePascal PToP, you can also fine-tune indentation and line wrap
+                        length.
+                    </p>
+                    <div class="command-list">
+                        <article>
+                            <h3>Required settings</h3>
+                            <ul>
+                                <li><code>pascal.formatter.engine</code>: ptop, jcf, jcf-quadroid, embarcadero, or pasfmt</li>
+                                <li><code>pascal.formatter.enginePath</code>: path to the engine executable</li>
+                            </ul>
+                        </article>
+                        <article>
+                            <h3>Optional settings</h3>
+                            <ul>
+                                <li><code>pascal.formatter.engineParameters</code>: configuration file for the selected engine</li>
+                                <li><code>pascal.format.indent</code> and <code>pascal.format.wrapLineLength</code> (FreePascal PToP only)</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+                <div class="spotlight-visual">
+                        <pre class="json-example"><code><span class="json-punctuation">{</span>
+  <span class="json-key">"pascal.formatter.engine"</span><span class="json-punctuation">:</span> <span class="json-string">"ptop"</span><span class="json-punctuation">,</span>
+  <span class="json-key">"pascal.formatter.enginePath"</span><span class="json-punctuation">:</span> <span class="json-string">"C:\\FPC\\2.6.4\\bin\\i386-win32\\ptop.exe"</span><span class="json-punctuation">,</span>
+  <span class="json-key">"pascal.formatter.engineParameters"</span><span class="json-punctuation">:</span> <span class="json-string">"C:\\FPC\\2.6.4\\bin\\i386-win32\\default.cfg"</span><span class="json-punctuation">,</span>
+  <span class="json-key">"pascal.format.indent"</span><span class="json-punctuation">:</span> <span class="json-number">2</span><span class="json-punctuation">,</span>
+  <span class="json-key">"pascal.format.wrapLineLength"</span><span class="json-punctuation">:</span> <span class="json-number">80</span>
+<span class="json-punctuation">}</span></code></pre>
+                </div>
+            </section>
+
+            <section class="settings-section" id="remote-development-ready">
+                <div class="section-heading">
+                    <p class="eyebrow">Remote development ready</p>
+                    <h2>Works across local, remote, and restricted workspaces.</h2>
+                </div>
+                <div class="settings-grid">
+                    <article>
+                        <h3>Virtual Workspaces</h3>
+                        <ul>
+                            <li>Runs in virtual workspaces, such as those backed by a remote file system provider</li>
+                            <li>Keeps formatting available without requiring a full local checkout</li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3>Workspace Trust</h3>
+                        <ul>
+                            <li>Supports Workspace Trust with limited capabilities in untrusted workspaces</li>
+                            <li>Restricts the <code>pascal.formatter.enginePath</code> setting until the workspace is trusted</li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3>Cross-platform engines</h3>
+                        <ul>
+                            <li>FreePascal PToP, Jedi Code Format (Quadroid), and pasfmt run on Windows, Linux and Mac OS X</li>
+                            <li>Jedi Code Format and Embarcadero Formatter are available on Windows only</li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3>OmniPascal compatible</h3>
+                        <ul>
+                            <li>Works alongside the OmniPascal extension for a fuller Pascal development experience</li>
+                            <li>Originally extracted from the Pascal language extension</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="sidebar-section" id="commands">
+                <div class="spotlight-copy">
+                    <p class="eyebrow">Commands</p>
+                    <h2>Format Document, Format Selection, and more.</h2>
+                    <p>
+                        Once an engine is configured, Pascal Formatter seamlessly integrates with the native
+                        Format Document and Format Selection commands in Visual Studio Code. It also adds a
+                        dedicated command to manage engine parameter files.
+                    </p>
+                </div>
+                <div class="sidebar-grid">
+                    <figure class="media-card">
+                        <img src="images/vscode-pascal-format-code.gif" alt="Format Document command screenshot">
+                    </figure>
+                </div>
+            </section>
+
+            <section class="feature-index faq-section" id="faq">
+                <div class="section-heading">
+                    <p class="eyebrow">FAQ</p>
+                    <h2>Quick answers for common questions.</h2>
+                </div>
+                <div class="faq-list">
+                    <details>
+                        <summary>Which formatting engines are supported?</summary>
+                        <p>FreePascal PToP, Jedi Code Format, Jedi Code Format (Quadroid), Embarcadero Formatter, and pasfmt. You install the engine of your choice separately and point the extension to it.</p>
+                    </details>
+                    <details>
+                        <summary>Can I format just a selection instead of the whole file?</summary>
+                        <p>Yes, but only with FreePascal PToP. Jedi Code Format and Embarcadero Formatter only work on entire files, so use PToP if you need Format Selection.</p>
+                    </details>
+                    <details>
+                        <summary>How do I choose and configure an engine?</summary>
+                        <p>Set <code>pascal.formatter.engine</code> to one of <code>ptop</code>, <code>jcf</code>, <code>jcf-quadroid</code>, <code>embarcadero</code>, or <code>pasfmt</code>, then set <code>pascal.formatter.enginePath</code> to the engine executable. An optional <code>pascal.formatter.engineParameters</code> setting points to a configuration file.</p>
+                    </details>
+                    <details>
+                        <summary>What extra settings are available for FreePascal PToP?</summary>
+                        <p>You can control <code>pascal.format.indent</code> for the number of spaces used per indentation level and <code>pascal.format.wrapLineLength</code> for the maximum characters per line.</p>
+                    </details>
+                    <details>
+                        <summary>What is the "Edit Formatter Parameters" command?</summary>
+                        <p>It opens or generates the parameters file for the currently selected engine, so you can review or tweak formatting rules without leaving VS Code.</p>
+                    </details>
+                    <details>
+                        <summary>Does it work on VS Code forks like Cursor, Windsurf, and Antigravity?</summary>
+                        <p>Yes! It works on all VS Code forks, ensuring compatibility and seamless integration with your favorite tools.</p>
+                    </details>
+                    <details>
+                        <summary>I have a feature request, bug report, or suggestion.</summary>
+                        <p>If you have a feature request, bug report, or suggestion, please submit it through our <a href="https://github.com/alefragnani/vscode-pascal-formatter/issues" class="text-link">GitHub Issues</a> page. We appreciate your feedback!</p>
+                    </details>
+                    <details>
+                        <summary>I have a question that's not listed here.</summary>
+                        <p>If you have a question that's not covered in the FAQ, feel free to reach out through our support channels at <a href="https://github.com/alefragnani/vscode-pascal-formatter/discussions" class="text-link">GitHub Discussions</a>. We're here to help!</p>
+                    </details>
+                </div>
+            </section>
+
+            <section class="support-section" id="donate">
+                <div class="section-heading">
+                    <p class="eyebrow">Donate</p>
+                    <h2>Support the extension if you find it useful.</h2>
+                </div>
+                <div class="support-grid">
+                    <article>
+                        <h3>Why support it</h3>
+                        <p>Pascal Formatter is open source, and your support helps keep maintenance, improvements, and engine compatibility moving forward.</p>
+                        <div class="link-row">
+                            <a class="text-link" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=EP57F3B6FXKTU&amp;lc=US&amp;item_name=Alessandro%20Fragnani&amp;item_number=vscode%20extensions&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted">PayPal</a>
+                            <a class="text-link" href="https://github.com/sponsors/alefragnani">GitHub Sponsors</a>
+                            <a class="text-link" href="https://www.patreon.com/alefragnani">Patreon</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        
+    </div>
+    <footer class="site-footer">
+        <div class="footer-social">
+            <a href="https://twitter.com/alefragnani" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="https://github.com/alefragnani" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/alefragnani/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+          </div>
+          <div class="footer-copy">&copy; 2026 Alessandro Fragnani</div>
+    </footer>
+    <script>
+        (() => {
+            const header = document.querySelector(".site-header");
+            const navToggle = document.querySelector(".nav-toggle");
+            const topNav = document.querySelector("#top-nav");
+
+            if (!(header instanceof HTMLElement) || !(navToggle instanceof HTMLButtonElement) || !(topNav instanceof HTMLElement)) {
+                return;
+            }
+
+            const mobileQuery = window.matchMedia("(max-width: 900px)");
+
+            const setExpanded = (expanded) => {
+                navToggle.setAttribute("aria-expanded", String(expanded));
+                header.classList.toggle("nav-open", expanded);
+                navToggle.setAttribute("aria-label", expanded ? "Close menu" : "Open menu");
+                navToggle.setAttribute("title", expanded ? "Close menu" : "Open menu");
+            };
+
+            const closeMenu = () => setExpanded(false);
+
+            navToggle.addEventListener("click", () => {
+                const expanded = navToggle.getAttribute("aria-expanded") === "true";
+                setExpanded(!expanded);
+            });
+
+            topNav.addEventListener("click", (event) => {
+                const target = event.target;
+                if (target instanceof HTMLElement && target.closest("a")) {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener("keydown", (event) => {
+                if (event.key === "Escape") {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener("click", (event) => {
+                if (!mobileQuery.matches || !(event.target instanceof Node)) {
+                    return;
+                }
+
+                if (!header.contains(event.target)) {
+                    closeMenu();
+                }
+            });
+
+            mobileQuery.addEventListener("change", () => {
+                if (!mobileQuery.matches) {
+                    closeMenu();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
