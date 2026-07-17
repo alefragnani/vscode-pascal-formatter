@@ -1,3 +1,18 @@
+## [2.10.0] - 2026-07-17
+### Added
+- Getting Started/Walkthrough (issue [#76](https://github.com/alefragnani/vscode-pascal-formatter/issues/76))
+- pasfmt Formatter Support (Thanks to @zaneduffield [PR #70](https://github.com/alefragnani/vscode-pascal-formatter/pull/70))
+
+### Internal
+- Security Alert: webpack (dependabot [PR #80](https://github.com/alefragnani/vscode-pascal-formatter/pull/80))
+- Security Alert: flatted (dependabot [PR #83](https://github.com/alefragnani/vscode-pascal-formatter/pull/83))
+- Security Alert: picomatch (dependabot [PR #88](https://github.com/alefragnani/vscode-pascal-formatter/pull/88))
+- Security Alert: fast-uri (dependabot [PR #93](https://github.com/alefragnani/vscode-pascal-formatter/pull/93))
+- Security Alert: serialize-javascript and mocha (dependabot [PR #69](https://github.com/alefragnani/vscode-pascal-formatter/pull/69))
+- Security Alert: js-yaml (dependabot [PR #78](https://github.com/alefragnani/vscode-pascal-formatter/pull/78))
+- Bump Node.js to v22 (issue [#84](https://github.com/alefragnani/vscode-pascal-formatter/issues/84))
+- Bump `vscode-whats-new` to March 2026 release (issue [#86](https://github.com/alefragnani/vscode-pascal-formatter/issues/86))
+
 ## [2.9.1] - 2025-02-03
 ### Internal
 - Security Alert: webpack (dependabot [PR #68](https://github.com/alefragnani/vscode-pascal-formatter/pull/68))
