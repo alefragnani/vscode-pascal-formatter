@@ -8,8 +8,10 @@
   <a title="Learn more about Pascal Formatter" href="http://github.com/alefragnani/vscode-pascal-formatter"><img src="https://raw.githubusercontent.com/alefragnani/vscode-pascal-formatter/master/images/vscode-pascal-formatter-logo-readme.png" alt="Pascal Formatter Logo" width="70%" /></a>
 </p>
 
-# What's new in Pascal Formatter 2.9
+# What's new in Pascal Formatter 2.10
 
+* Adds **Getting Started / Walkthrough**
+* Adds **pasfmt** support
 * Published to **Open VSX**
 * Adds **Quadroid JEDI Formatter** support
 * Adds **Virtual Workspaces** support
