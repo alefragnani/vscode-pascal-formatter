@@ -15,9 +15,7 @@
 * Published to **Open VSX**
 * Adds **Quadroid JEDI Formatter** support
 * Adds **Virtual Workspaces** support
-* Adds **Workspace Trust** support
 * Adds **Embarcadero Formatter** support
-* Adds **OmniPascal** extension support
 
 # Support
 
