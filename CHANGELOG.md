@@ -1,7 +1,7 @@
 ## [2.10.0] - 2026-07-17
 ### Added
 - Getting Started/Walkthrough (issue [#76](https://github.com/alefragnani/vscode-pascal-formatter/issues/76))
-- pasmft Formatter Support (Thanks to @zaneduffield [PR #70](https://github.com/alefragnani/vscode-pascal-formatter/pull/70))
+- pasfmt Formatter Support (Thanks to @zaneduffield [PR #70](https://github.com/alefragnani/vscode-pascal-formatter/pull/70))
 
 ### Internal
 - Security Alert: webpack (dependabot [PR #80](https://github.com/alefragnani/vscode-pascal-formatter/pull/80))

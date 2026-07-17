@@ -37,7 +37,7 @@ export class PascalFormatterContentProvider implements ContentProvider {
             kind: ChangeLogKind.NEW,
             detail: {
                 message: "<b>pasfmt</b> Formatter Support",
-                id: 76,
+                id: 70,
                 kind: IssueKind.PR,
                 kudos: "zaneduffield"
             }
@@ -101,7 +101,7 @@ export class PascalFormatterContentProvider implements ContentProvider {
             kind: ChangeLogKind.INTERNAL,
             detail: {
                 message: "Bump Node.js to v22",
-                id: 78,
+                id: 84,
                 kind: IssueKind.Issue
             }
         });
