@@ -67,7 +67,12 @@ suite('Formatter Concurrency Test Suite', () => {
 			const results = await Promise.all(
 				documents.map(document => {
 					const formatter = new Formatter(document);
-					return formatter.format(undefined as unknown as vscode.Range, 'ptop', enginePath, '', 0, 0);
+					const fullRange = new vscode.Range(
+						0, 0,
+						document.lineCount,
+						document.lineAt(document.lineCount - 1).range.end.character
+					);
+					return formatter.format(fullRange, 'ptop', enginePath, '', 0, 0);
 				})
 			);
 

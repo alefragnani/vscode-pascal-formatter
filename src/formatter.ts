@@ -128,18 +128,22 @@ export class Formatter {
                         console.log('stdout' + stdout);
                         console.log('error' + error);
                         console.log('stderr' + stderr);
-                        if (error) {
-                            cleanupTempFiles();
-                            reject(stdout.toString());
-                        }
-                        else {
-                            let formattedXml: string = fs.readFileSync(readFile, 'utf8');
-                            // remove UTF-8 BOM
-                            if (formattedXml.charCodeAt(0) === 0xfeff) {
-                                formattedXml = formattedXml.substr(1);
+                        try {
+                            if (error) {
+                                reject(stdout.toString());
                             }
+                            else {
+                                let formattedXml: string = fs.readFileSync(readFile, 'utf8');
+                                // remove UTF-8 BOM
+                                if (formattedXml.charCodeAt(0) === 0xfeff) {
+                                    formattedXml = formattedXml.substr(1);
+                                }
+                                resolve(formattedXml);
+                            }
+                        } catch (readError) {
+                            reject(readError.toString());
+                        } finally {
                             cleanupTempFiles();
-                            resolve(formattedXml);
                         }
                     });
 
