@@ -8,6 +8,7 @@ import fs = require('fs');
 import cp = require('child_process');
 import os = require('os');
 import npath = require('path');
+import crypto = require('crypto');
 import { l10n } from 'vscode';
 
 /*
@@ -50,9 +51,13 @@ export class Formatter {
             );
 
             const textToFormat = this._document.getText(range);
-            const tempFile: string = npath.join(os.tmpdir(), 'tmp.tmp.pas');
+            // use a unique temp file name per invocation, so concurrent formatting of
+            // multiple files (e.g. bulk search and replace with format on save) can't
+            // race on a shared temp file and corrupt each other's content
+            const uniqueId = crypto.randomUUID();
+            const tempFile: string = npath.join(os.tmpdir(), `pascal-formatter-${uniqueId}.pas`);
             let command: string;
-            const tempFileOut: string = npath.join(os.tmpdir(), 'tmp.tmp.out');
+            const tempFileOut: string = npath.join(os.tmpdir(), `pascal-formatter-${uniqueId}.out`);
             let readFile: string;
             let configFileParameters = '';
 
@@ -112,21 +117,33 @@ export class Formatter {
                         readFile = tempFileOut
                     }
 
+                    const cleanupTempFiles = () => {
+                        for (const file of [tempFile, tempFileOut]) {
+                            fs.unlink(file, () => { /* best-effort cleanup, ignore errors */ });
+                        }
+                    };
+
                     console.log(command);
                     cp.exec(command, { cwd }, function(error, stdout, stderr) {
                         console.log('stdout' + stdout);
                         console.log('error' + error);
                         console.log('stderr' + stderr);
-                        if (error) {
-                            reject(stdout.toString());
-                        }
-                        else {
-                            let formattedXml: string = fs.readFileSync(readFile, 'utf8');
-                            // remove UTF-8 BOM
-                            if (formattedXml.charCodeAt(0) === 0xfeff) {
-                                formattedXml = formattedXml.substr(1);
+                        try {
+                            if (error) {
+                                reject(stdout.toString());
                             }
-                            resolve(formattedXml);
+                            else {
+                                let formattedXml: string = fs.readFileSync(readFile, 'utf8');
+                                // remove UTF-8 BOM
+                                if (formattedXml.charCodeAt(0) === 0xfeff) {
+                                    formattedXml = formattedXml.substr(1);
+                                }
+                                resolve(formattedXml);
+                            }
+                        } catch (readError) {
+                            reject(readError.toString());
+                        } finally {
+                            cleanupTempFiles();
                         }
                     });
 
