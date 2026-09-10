@@ -1,0 +1,10 @@
+{
+    "The \"pascal.formatter.engineParameters\" setting is not defined": "\"pascal.formatter.engineParameters\" parametri təyin edilməyib",
+    "Generate": "Yarat",
+    "The \"pascal.formatter.engineParameters\" setting is not defined. Would you like to generate the default?": "\"pascal.formatter.engineParameters\" parametri təyin edilməyib. Standart konfiqurasiya faylını yaratmaq istəyirsən?",
+    "Error while formatting: {0}": "Formatlaşdırma zamanı xəta: {0}",
+    "checkEngineDefined: {0}": "checkEngineDefined: {0}",
+    "The selected engine \"{0}\" does not support selection.": "Seçilmiş \"{0}\" mühərriki seçilmiş hissənin formatlaşdırılmasını dəstəkləmir.",
+    "The \"pascal.formatter.engine\" setting is not defined. Do you want to download some formatter tool first?": "\"pascal.formatter.engine\" parametri təyin edilməyib. Əvvəlcə bir formatlaşdırma aləti endirmək istəyirsən?",
+    "The \"pascal.formatter.enginePath\" setting is not defined. Please configure.": "\"pascal.formatter.enginePath\" parametri təyin edilməyib. Konfiqurasiya et."
+}
