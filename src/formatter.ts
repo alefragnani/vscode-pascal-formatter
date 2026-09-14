@@ -19,6 +19,13 @@ linux:
 
 */
 
+// wraps a single path argument in double quotes, so paths containing spaces
+// are not split by the shell. Quotes the user already added (the old workaround)
+// are stripped first, to avoid producing ""path""
+function quoteArg(value: string): string {
+    return `"${value.trim().replace(/^"+|"+$/g, "")}"`;
+}
+
 export class Formatter {
 
     constructor(private _document: vscode.TextDocument, private _options?: vscode.FormattingOptions) {
@@ -70,6 +77,12 @@ export class Formatter {
             if (textToFormat) {
 
                 try {
+
+                    // parameters is a config file path for every engine but pasfmt,
+                    // where it holds free-form arguments and must not be quoted
+                    if (parameters !== "" && engine !== "pasfmt") {
+                        parameters = quoteArg(parameters);
+                    }
 
                     if (engine === 'embarcadero') {
                         if (parameters !== '') {
