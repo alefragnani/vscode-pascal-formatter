@@ -168,6 +168,22 @@ suite("Formatter Engine Parameters Test Suite", () => {
 			assertContainsArgs(args, expectedArgs(configPath));
 		});
 
+		test(`${engine}: config file path wrapped in single quotes is not quoted twice`, async function () {
+			this.timeout(10000);
+
+			const args = await formatWithParameters(engine, `'${configPath}'`);
+
+			assertContainsArgs(args, expectedArgs(configPath));
+		});
+
+		test(`${engine}: leading "~/" in the config file path is expanded to the home directory`, async function () {
+			this.timeout(10000);
+
+			const args = await formatWithParameters(engine, "~/config with spaces (x86)/default.cfg");
+
+			assertContainsArgs(args, expectedArgs(path.join(os.homedir(), "config with spaces (x86)", "default.cfg")));
+		});
+
 		test(`${engine}: spaces around the config file path are ignored`, async function () {
 			this.timeout(10000);
 

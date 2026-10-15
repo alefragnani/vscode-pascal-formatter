@@ -19,11 +19,23 @@ linux:
 
 */
 
-// wraps a single path argument in double quotes, so paths containing spaces
-// are not split by the shell. Quotes the user already added (the old workaround)
-// are stripped first, to avoid producing ""path""
+// wraps a single path argument in double quotes, so paths containing spaces are
+// not split by the shell. Quotes the user already added as a workaround are
+// stripped first (either style), to avoid quoting the quotes, and a leading "~/"
+// is expanded here because the shell only expands it on unquoted arguments
 function quoteArg(value: string): string {
-    return `"${value.trim().replace(/^"+|"+$/g, "")}"`;
+    let arg = value.trim();
+
+    const quote = arg.charAt(0);
+    if (arg.length > 1 && (quote === "\"" || quote === "'") && arg.endsWith(quote)) {
+        arg = arg.slice(1, -1);
+    }
+
+    if (arg.startsWith("~/")) {
+        arg = npath.join(os.homedir(), arg.slice(2));
+    }
+
+    return `"${arg}"`;
 }
 
 export class Formatter {
