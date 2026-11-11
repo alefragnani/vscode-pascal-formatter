@@ -19,6 +19,25 @@ linux:
 
 */
 
+// wraps a single path argument in double quotes, so paths containing spaces are
+// not split by the shell. Quotes the user already added as a workaround are
+// stripped first (either style), to avoid quoting the quotes, and a leading "~/"
+// is expanded here because the shell only expands it on unquoted arguments
+function quoteArg(value: string): string {
+    let arg = value.trim();
+
+    const quote = arg.charAt(0);
+    if (arg.length > 1 && (quote === "\"" || quote === "'") && arg.endsWith(quote)) {
+        arg = arg.slice(1, -1);
+    }
+
+    if (arg.startsWith("~/")) {
+        arg = npath.join(os.homedir(), arg.slice(2));
+    }
+
+    return `"${arg}"`;
+}
+
 export class Formatter {
 
     constructor(private _document: vscode.TextDocument, private _options?: vscode.FormattingOptions) {
@@ -70,6 +89,12 @@ export class Formatter {
             if (textToFormat) {
 
                 try {
+
+                    // parameters is a config file path for every engine but pasfmt,
+                    // where it holds free-form arguments and must not be quoted
+                    if (parameters !== "" && engine !== "pasfmt") {
+                        parameters = quoteArg(parameters);
+                    }
 
                     if (engine === 'embarcadero') {
                         if (parameters !== '') {
