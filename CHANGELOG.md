@@ -1,3 +1,26 @@
+## [2.11.0] - 2026-11-11
+### Added
+- **az** translations (Thanks to @jamalkamaladdin [PR #110](https://github.com/alefragnani/vscode-pascal-formatter/pull/110))
+
+### Changed
+- Don't require quotes around paths with spaces in `engineParameters` setting (issue [#61](https://github.com/alefragnani/vscode-pascal-formatter/issues/61))
+- Quote `engineParameters` config file path for engines that take a path (issue [#95](https://github.com/alefragnani/vscode-pascal-formatter/issues/95))
+
+### Fixed
+- Bulk Search and Replace copies content of one file to all resulting files (issue [#105](https://github.com/alefragnani/vscode-pascal-formatter/issues/105))
+
+### Internal
+- Security Alert: fast-uri (dependabot [PR #101](https://github.com/alefragnani/vscode-pascal-formatter/pull/101))
+- Security Alert: js-yaml (dependabot [PR #102](https://github.com/alefragnani/vscode-pascal-formatter/pull/102))
+- Security Alert: fast-uri (dependabot [PR #107](https://github.com/alefragnani/vscode-pascal-formatter/pull/107))
+- Security Alert: brace-expansion (dependabot [PR #108](https://github.com/alefragnani/vscode-pascal-formatter/pull/108))
+- Security Alert: browserslist (dependabot [PR #109](https://github.com/alefragnani/vscode-pascal-formatter/pull/109))
+- Security Alert: js-yaml (dependabot [PR #111](https://github.com/alefragnani/vscode-pascal-formatter/pull/111))
+- Security Alert: serialize-javascript, terser-webpack-plugin and mocha (dependabot [PR #112](https://github.com/alefragnani/vscode-pascal-formatter/pull/112))
+- Security Alert: serialize-javascript (dependabot [PR #114](https://github.com/alefragnani/vscode-pascal-formatter/pull/114))
+- Security Alert: brace-expansion (dependabot [PR #115](https://github.com/alefragnani/vscode-pascal-formatter/pull/115))
+- Security Alert: fast-uri (dependabot [PR #116](https://github.com/alefragnani/vscode-pascal-formatter/pull/116))
+
 ## [2.10.0] - 2026-07-17
 ### Added
 - Getting Started/Walkthrough (issue [#76](https://github.com/alefragnani/vscode-pascal-formatter/issues/76))
