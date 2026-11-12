@@ -8,14 +8,12 @@
   <a title="Learn more about Pascal Formatter" href="http://github.com/alefragnani/vscode-pascal-formatter"><img src="https://raw.githubusercontent.com/alefragnani/vscode-pascal-formatter/master/images/vscode-pascal-formatter-logo-readme.png" alt="Pascal Formatter Logo" width="70%" /></a>
 </p>
 
-# What's new in Pascal Formatter 2.10
+# What's new in Pascal Formatter 2.11
 
+* Adds **Azerbaijani** translation
 * Adds **Getting Started / Walkthrough**
 * Adds **pasfmt** support
 * Published to **Open VSX**
-* Adds **Quadroid JEDI Formatter** support
-* Adds **Virtual Workspaces** support
-* Adds **Embarcadero Formatter** support
 
 # Support
 
@@ -105,6 +103,8 @@ There is also:
 
 Special thanks to the people that have contributed to the project:
 
+* @matheusfcorocher - Quote engineParameters config file path ([see PR](https://github.com/alefragnani/vscode-pascal-formatter/pull/113))
+* @jamalkamaladdin - az translation ([see PR](https://github.com/alefragnani/vscode-pascal-formatter/pull/110))
 * @Quadroid - Quadroid JEDI Code Format support ([see PR](https://github.com/alefragnani/vscode-pascal-formatter/pull/52))
 * @AThePeanut4 - Embarcadero Formatter support ([see PR](https://github.com/alefragnani/vscode-pascal-formatter/pull/23))
 
